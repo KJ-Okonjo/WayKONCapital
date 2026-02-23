@@ -1,4 +1,4 @@
-# WayKon Capital - Quick Deployment Guide
+# WayKON Capital - Quick Deployment Guide
 
 ## Instant Local Preview
 

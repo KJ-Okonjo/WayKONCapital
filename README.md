@@ -1,6 +1,6 @@
-# WayKon Capital - Corporate Website
+# WayKON Capital - Corporate Website
 
-A fully functional, multi-page website for WayKon Capital, a premier holding company.
+A fully functional, multi-page website for WayKON Capital, a premier holding company.
 
 ## 📁 Project Structure
 
@@ -76,7 +76,7 @@ waykon-capital/
   - Investment Approach
   - Partnership & Services
   - Process & Timeline
-  - About WayKon Capital
+  - About WayKON Capital
 
 ### Careers (careers.html)
 - Company values grid
@@ -168,7 +168,7 @@ aws s3 sync . s3://waykoncapital.com --acl public-read
 
 ### Update Company Information
 
-1. **Logo:** Replace "WayKon Capital" text in `.nav-brand` with `<img>` tag
+1. **Logo:** Replace "WayKON Capital" text in `.nav-brand` with `<img>` tag
 2. **Images:** Replace placeholder URLs in HTML with your actual images
 3. **Content:** Edit text directly in HTML files
 4. **Colors:** Modify CSS variables in `style.css` (`:root` section)
@@ -188,13 +188,13 @@ aws s3 sync . s3://waykoncapital.com --acl public-read
 ```html
 <!-- In all HTML files, replace: -->
 <div class="nav-brand">
-    <a href="index.html">WayKon Capital</a>
+    <a href="index.html">WayKON Capital</a>
 </div>
 
 <!-- With: -->
 <div class="nav-brand">
     <a href="index.html">
-        <img src="images/logo.png" alt="WayKon Capital" style="height: 40px;">
+        <img src="images/logo.png" alt="WayKON Capital" style="height: 40px;">
     </a>
 </div>
 ```
@@ -284,7 +284,7 @@ For questions or customization requests, contact your development team.
 
 ## 📜 License
 
-© 2026 WayKon Capital. All rights reserved.
+© 2026 WayKON Capital. All rights reserved.
 
 ---
 

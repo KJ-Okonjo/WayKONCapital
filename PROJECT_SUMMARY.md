@@ -1,8 +1,8 @@
-# WayKon Capital Website - Project Summary
+# WayKON Capital Website - Project Summary
 
 ## 📊 Project Overview
 
-**Client:** WayKon Capital (Holding Company)  
+**Client:** WayKON Capital (Holding Company)  
 **Type:** Multi-page Corporate Website  
 **Status:** ✅ Production-ready  
 **Tech Stack:** HTML5, CSS3, Vanilla JavaScript
@@ -338,7 +338,7 @@ Replace text in all HTML files:
 ```html
 <div class="nav-brand">
     <a href="index.html">
-        <img src="images/logo.png" alt="WayKon Capital">
+        <img src="images/logo.png" alt="WayKON Capital">
     </a>
 </div>
 ```

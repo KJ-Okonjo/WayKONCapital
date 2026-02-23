@@ -4,17 +4,20 @@
 
 /* === CSS Variables === */
 :root {
-    --color-bg: #faf9f7;
+    --color-bg: #f5f3ef;
     --color-white: #ffffff;
     --color-black: #1a1a1a;
     --color-grey: #6b6b6b;
     --color-grey-light: #d4d4d4;
-    --color-brown: #3d3128;
-    --color-brown-dark: #2a211a;
-    --color-accent: #3d3128;
+    --color-navy: #1a2c42;
+    --color-navy-dark: #0f1a2b;
+    --color-blue: #2d5a8f;
+    --color-gold: #c9a961;
+    --color-beige: #e8e5df;
+    --color-accent: #1a2c42;
     
     --font-primary: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", "Roboto", sans-serif;
-    --font-heading: "Georgia", "Times New Roman", serif;
+    --font-heading: "Inter", "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
     
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -75,9 +78,10 @@ button {
 /* === Typography === */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.2;
     color: var(--color-black);
+    letter-spacing: -0.02em;
 }
 
 h1 {
@@ -187,7 +191,7 @@ p {
 }
 
 .btn-contact {
-    background-color: var(--color-brown) !important;
+    background-color: var(--color-navy) !important;
     color: var(--color-white) !important;
     padding: 0.6rem 1.5rem !important;
     border-radius: 6px;
@@ -198,7 +202,7 @@ p {
 }
 
 .btn-contact:hover {
-    background-color: var(--color-brown-dark) !important;
+    background-color: var(--color-blue) !important;
     transform: translateY(-2px);
     box-shadow: var(--shadow-sm);
 }
@@ -259,12 +263,12 @@ p {
 }
 
 .btn-primary {
-    background-color: var(--color-brown);
+    background-color: var(--color-navy);
     color: var(--color-white);
 }
 
 .btn-primary:hover {
-    background-color: var(--color-brown-dark);
+    background-color: var(--color-blue);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
@@ -277,17 +281,17 @@ p {
 
 .btn-secondary:hover {
     background-color: var(--color-white);
-    color: var(--color-brown);
+    color: var(--color-navy);
 }
 
 .btn-outline {
     background-color: transparent;
-    color: var(--color-brown);
-    border: 2px solid var(--color-brown);
+    color: var(--color-navy);
+    border: 2px solid var(--color-navy);
 }
 
 .btn-outline:hover {
-    background-color: var(--color-brown);
+    background-color: var(--color-navy);
     color: var(--color-white);
 }
 
@@ -310,7 +314,7 @@ p {
 
 .btn-outline-light:hover {
     background-color: var(--color-white);
-    color: var(--color-brown);
+    color: var(--color-navy);
 }
 
 .btn-block {
@@ -323,7 +327,7 @@ p {
     position: relative;
     height: 85vh;
     min-height: 600px;
-    background: linear-gradient(135deg, var(--color-brown) 0%, var(--color-brown-dark) 100%);
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-dark) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -351,7 +355,7 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(61, 49, 40, 0.9) 0%, rgba(42, 33, 26, 0.95) 100%);
+    background: linear-gradient(135deg, rgba(26, 44, 66, 0.9) 0%, rgba(15, 26, 43, 0.95) 100%);
 }
 
 .hero-content {
@@ -381,7 +385,7 @@ p {
 
 /* === Page Hero === */
 .page-hero {
-    background: linear-gradient(135deg, var(--color-brown) 0%, var(--color-brown-dark) 100%);
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-dark) 100%);
     padding: 8rem 0 5rem;
     margin-top: 70px;
     text-align: center;
@@ -420,7 +424,7 @@ p {
 .divider {
     width: 60px;
     height: 3px;
-    background-color: var(--color-brown);
+    background: linear-gradient(90deg, var(--color-navy) 0%, var(--color-blue) 100%);
     margin: 1.5rem auto;
 }
 
@@ -461,8 +465,9 @@ p {
 
 .stat-card h3 {
     font-size: 2.5rem;
-    color: var(--color-brown);
+    color: var(--color-navy);
     margin-bottom: 0.5rem;
+    font-weight: 800;
 }
 
 .stat-card p {
@@ -496,10 +501,10 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--color-bg);
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-blue) 100%);
     border-radius: 12px;
     margin-bottom: 1.5rem;
-    color: var(--color-brown);
+    color: var(--color-white);
 }
 
 .focus-card h3 {
@@ -556,8 +561,8 @@ p {
 .portfolio-tag {
     display: inline-block;
     padding: 0.35rem 0.85rem;
-    background-color: var(--color-bg);
-    color: var(--color-brown);
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-blue) 100%);
+    color: var(--color-white);
     font-size: 0.8rem;
     font-weight: 600;
     border-radius: 20px;
@@ -577,12 +582,13 @@ p {
 }
 
 .portfolio-link {
-    color: var(--color-brown);
+    color: var(--color-navy);
     font-weight: 600;
     font-size: 0.95rem;
 }
 
 .portfolio-link:hover {
+    color: var(--color-blue);
     text-decoration: underline;
 }
 
@@ -604,8 +610,8 @@ p {
     left: 0;
     top: 0;
     bottom: 0;
-    width: 2px;
-    background-color: var(--color-brown);
+    width: 3px;
+    background: linear-gradient(180deg, var(--color-navy) 0%, var(--color-blue) 100%);
 }
 
 .timeline-item {
@@ -618,17 +624,18 @@ p {
     position: absolute;
     left: -3.5rem;
     top: 0.5rem;
-    width: 12px;
-    height: 12px;
-    background-color: var(--color-brown);
+    width: 14px;
+    height: 14px;
+    background-color: var(--color-gold);
+    border: 3px solid var(--color-navy);
     border-radius: 50%;
 }
 
 .timeline-date {
     display: inline-block;
     padding: 0.35rem 0.85rem;
-    background-color: var(--color-bg);
-    color: var(--color-brown);
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-blue) 100%);
+    color: var(--color-white);
     font-size: 0.85rem;
     font-weight: 700;
     border-radius: 20px;
@@ -678,7 +685,7 @@ p {
     display: inline-block;
     width: 50px;
     height: 50px;
-    background-color: var(--color-brown);
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-blue) 100%);
     color: var(--color-white);
     font-size: 1.25rem;
     font-weight: 700;
@@ -746,7 +753,7 @@ p {
 .approach-card h3 {
     font-size: 1.25rem;
     margin-bottom: 1rem;
-    color: var(--color-brown);
+    color: var(--color-navy);
 }
 
 .approach-card p {
@@ -788,12 +795,12 @@ p {
     flex-shrink: 0;
     width: 48px;
     height: 48px;
-    background-color: var(--color-bg);
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-blue) 100%);
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-brown);
+    color: var(--color-white);
 }
 
 .contact-item h4 {
@@ -806,8 +813,12 @@ p {
 }
 
 .contact-item a {
-    color: var(--color-brown);
+    color: var(--color-navy);
     text-decoration: underline;
+}
+
+.contact-item a:hover {
+    color: var(--color-blue);
 }
 
 .office-hours {
@@ -864,8 +875,8 @@ p {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--color-brown);
-    box-shadow: 0 0 0 3px rgba(61, 49, 40, 0.1);
+    border-color: var(--color-navy);
+    box-shadow: 0 0 0 3px rgba(26, 44, 66, 0.1);
 }
 
 .form-group textarea {
@@ -916,7 +927,7 @@ p {
 .faq-category h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
-    color: var(--color-brown);
+    color: var(--color-navy);
 }
 
 .faq-item {
@@ -1022,7 +1033,7 @@ p {
 .value-card h3 {
     font-size: 1.35rem;
     margin-bottom: 1rem;
-    color: var(--color-brown);
+    color: var(--color-navy);
 }
 
 .value-card p {
@@ -1071,7 +1082,7 @@ p {
 .position-meta span {
     padding: 0.35rem 0.85rem;
     background-color: var(--color-white);
-    color: var(--color-brown);
+    color: var(--color-navy);
     font-size: 0.85rem;
     font-weight: 600;
     border-radius: 20px;
@@ -1100,7 +1111,7 @@ p {
 .benefit-card h4 {
     font-size: 1.25rem;
     margin-bottom: 0.75rem;
-    color: var(--color-brown);
+    color: var(--color-navy);
 }
 
 .benefit-card p {
@@ -1167,7 +1178,7 @@ p {
 
 /* === CTA Section === */
 .cta-section {
-    background: linear-gradient(135deg, var(--color-brown) 0%, var(--color-brown-dark) 100%);
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-dark) 100%);
     padding: 6rem 0;
     text-align: center;
 }
