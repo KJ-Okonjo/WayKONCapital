@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join the WayKon Capital team. Explore career opportunities in investment, operations, and strategic advisory.">
+    <meta name="keywords" content="careers, jobs, WayKon Capital, investment careers, finance jobs">
+    <title>Careers - WayKon Capital</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">WayKon Capital</a>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="companies.html">Companies</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="companies.html#portfolio">Portfolio</a></li>
+                        <li><a href="companies.html#investments">Recent Investments</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="services.html">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="services.html#advisory">Advisory</a></li>
+                        <li><a href="services.html#management">Management</a></li>
+                        <li><a href="services.html#growth">Growth Strategy</a></li>
+                    </ul>
+                </li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="careers.html" class="active">Careers</a></li>
+                <li><a href="contact.html" class="btn-contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content fade-in">
+                <h1>Join Our Team</h1>
+                <p>Build your career alongside exceptional investors and operators</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section class="section">
+        <div class="container">
+            <div class="careers-intro fade-on-scroll">
+                <h2>Why WayKon Capital</h2>
+                <p class="lead">We're building a firm where talented professionals can do their best work, make meaningful impact, and grow their careers alongside exceptional colleagues.</p>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card fade-on-scroll">
+                    <h3>Ownership Mindset</h3>
+                    <p>We take full responsibility for outcomes and act like owners in everything we do.</p>
+                </div>
+                <div class="value-card fade-on-scroll">
+                    <h3>Intellectual Curiosity</h3>
+                    <p>We constantly learn, question assumptions, and seek better ways to create value.</p>
+                </div>
+                <div class="value-card fade-on-scroll">
+                    <h3>Collaboration</h3>
+                    <p>We win as a team, sharing knowledge and supporting each other's growth.</p>
+                </div>
+                <div class="value-card fade-on-scroll">
+                    <h3>Long-Term Thinking</h3>
+                    <p>We optimize for sustainable success over short-term wins.</p>
+                </div>
+                <div class="value-card fade-on-scroll">
+                    <h3>Excellence</h3>
+                    <p>We hold ourselves to the highest standards in everything we deliver.</p>
+                </div>
+                <div class="value-card fade-on-scroll">
+                    <h3>Impact</h3>
+                    <p>We measure success by the value we create for our portfolio companies and stakeholders.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Open Positions -->
+    <section class="section positions-section">
+        <div class="container">
+            <div class="section-header fade-on-scroll">
+                <h2>Open Positions</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="positions-list">
+                <div class="position-card fade-on-scroll">
+                    <div class="position-header">
+                        <div>
+                            <h3>Investment Associate</h3>
+                            <div class="position-meta">
+                                <span class="position-location">New York, NY</span>
+                                <span class="position-type">Full-Time</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" onclick="openApplicationModal('Investment Associate')">Apply Now</button>
+                    </div>
+                    <p>Support deal sourcing, due diligence, and portfolio company management. Ideal candidate has 2-4 years of experience in investment banking, private equity, or consulting.</p>
+                </div>
+
+                <div class="position-card fade-on-scroll">
+                    <div class="position-header">
+                        <div>
+                            <h3>Senior Vice President, Operations</h3>
+                            <div class="position-meta">
+                                <span class="position-location">San Francisco, CA</span>
+                                <span class="position-type">Full-Time</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" onclick="openApplicationModal('Senior Vice President, Operations')">Apply Now</button>
+                    </div>
+                    <p>Lead operational improvement initiatives across portfolio companies. Seeking experienced operator with track record in scaling businesses and driving operational excellence.</p>
+                </div>
+
+                <div class="position-card fade-on-scroll">
+                    <div class="position-header">
+                        <div>
+                            <h3>Principal, Healthcare Investments</h3>
+                            <div class="position-meta">
+                                <span class="position-location">New York, NY</span>
+                                <span class="position-type">Full-Time</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" onclick="openApplicationModal('Principal, Healthcare Investments')">Apply Now</button>
+                    </div>
+                    <p>Lead healthcare sector investments from sourcing through exit. Requires deep healthcare industry expertise and 7+ years of investment experience.</p>
+                </div>
+
+                <div class="position-card fade-on-scroll">
+                    <div class="position-header">
+                        <div>
+                            <h3>Analyst, Financial Planning & Analysis</h3>
+                            <div class="position-meta">
+                                <span class="position-location">London, UK</span>
+                                <span class="position-type">Full-Time</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" onclick="openApplicationModal('Analyst, Financial Planning & Analysis')">Apply Now</button>
+                    </div>
+                    <p>Support portfolio company CFO services and financial reporting. Strong financial modeling and analytical skills required, along with 1-3 years relevant experience.</p>
+                </div>
+
+                <div class="position-card fade-on-scroll">
+                    <div class="position-header">
+                        <div>
+                            <h3>Investment Intern (Summer 2026)</h3>
+                            <div class="position-meta">
+                                <span class="position-location">New York, NY</span>
+                                <span class="position-type">Internship</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" onclick="openApplicationModal('Investment Intern (Summer 2026)')">Apply Now</button>
+                    </div>
+                    <p>10-week summer program providing hands-on experience in investment analysis, due diligence, and portfolio management. Open to graduate students and advanced undergraduates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section benefits-section">
+        <div class="container">
+            <div class="section-header fade-on-scroll">
+                <h2>Benefits & Perks</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card fade-on-scroll">
+                    <h4>Competitive Compensation</h4>
+                    <p>Market-leading salary, performance bonuses, and equity participation</p>
+                </div>
+                <div class="benefit-card fade-on-scroll">
+                    <h4>Health & Wellness</h4>
+                    <p>Comprehensive medical, dental, and vision coverage for you and your family</p>
+                </div>
+                <div class="benefit-card fade-on-scroll">
+                    <h4>Professional Development</h4>
+                    <p>Learning stipends, conference attendance, and executive coaching</p>
+                </div>
+                <div class="benefit-card fade-on-scroll">
+                    <h4>Work-Life Balance</h4>
+                    <p>Flexible work arrangements and generous paid time off</p>
+                </div>
+                <div class="benefit-card fade-on-scroll">
+                    <h4>Retirement Planning</h4>
+                    <p>401(k) with company match and financial planning resources</p>
+                </div>
+                <div class="benefit-card fade-on-scroll">
+                    <h4>Team Culture</h4>
+                    <p>Regular team events, dinners, and annual off-site retreats</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Modal -->
+    <div class="modal" id="applicationModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeApplicationModal()">&times;</button>
+            <h2>Apply for Position</h2>
+            <p id="modalPositionTitle" class="modal-subtitle"></p>
+            
+            <form class="application-form" id="applicationForm">
+                <div class="form-group">
+                    <label for="appName">Full Name *</label>
+                    <input type="text" id="appName" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="appEmail">Email Address *</label>
+                    <input type="email" id="appEmail" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="appPhone">Phone Number</label>
+                    <input type="tel" id="appPhone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="appLinkedin">LinkedIn Profile URL</label>
+                    <input type="url" id="appLinkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                </div>
+
+                <div class="form-group">
+                    <label for="appResume">Resume / CV * (PDF, DOC, DOCX)</label>
+                    <input type="file" id="appResume" name="resume" accept=".pdf,.doc,.docx" required>
+                    <small>Maximum file size: 5MB</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="appCoverLetter">Cover Letter (Optional)</label>
+                    <textarea id="appCoverLetter" name="coverLetter" rows="6" placeholder="Tell us why you're interested in this role and what you'd bring to the team..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Submit Application</button>
+                
+                <p class="form-note">* Required fields. By submitting this form, you agree to our privacy policy and terms of use.</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>WayKon Capital</h3>
+                    <p>Investing in the future, empowering growth across industries and geographies.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="companies.html">Companies</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="contact.html">Get in Touch</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li>info@waykoncapital.com</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 WayKon Capital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
