@@ -454,9 +454,6 @@ p {
 }
 
 /* === About Section === */
-.about-section {
-    background-color: var(--color-white);
-}
 
 .about-content {
     display: grid;
@@ -490,10 +487,14 @@ p {
 
 .stat-card h3 {
     font-size: 2.5rem;
-    color: var(--color-brown);
     margin-bottom: 0.5rem;
     font-weight: 800;
 }
+
+.stat-card:nth-child(1) h3 { color: var(--color-orange); }
+.stat-card:nth-child(2) h3 { color: var(--color-blue); }
+.stat-card:nth-child(3) h3 { color: var(--color-teal); }
+.stat-card:nth-child(4) h3 { color: var(--color-purple); }
 
 .stat-card p {
     color: var(--color-grey);
@@ -632,9 +633,6 @@ p {
 }
 
 /* === Timeline === */
-.investments-section {
-    background-color: var(--color-white);
-}
 
 .timeline {
     max-width: 800px;
@@ -650,7 +648,7 @@ p {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: var(--color-brown);
+    background: var(--color-silver-shine);
 }
 
 .timeline-item {
@@ -673,7 +671,7 @@ p {
     top: 0.5rem;
     width: 12px;
     height: 12px;
-    background-color: var(--color-brown);
+    background: var(--color-silver-shine);
     border: 3px solid var(--color-bg);
     border-radius: 50%;
 }
@@ -681,8 +679,8 @@ p {
 .timeline-date {
     display: inline-block;
     padding: 0.375rem 0.875rem;
-    background: var(--color-brown);
-    color: var(--color-white);
+    background: var(--color-silver-shine);
+    color: var(--color-black);
     font-size: 0.8125rem;
     font-weight: 700;
     border-radius: 20px;
@@ -785,10 +783,6 @@ p {
     height: auto;
 }
 
-.approach-section {
-    background-color: var(--color-white);
-}
-
 .approach-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -803,8 +797,12 @@ p {
 .approach-card h3 {
     font-size: 1.125rem;
     margin-bottom: 0.875rem;
-    color: var(--color-brown);
 }
+
+.approach-card:nth-child(1) h3 { color: var(--color-orange); }
+.approach-card:nth-child(2) h3 { color: var(--color-blue); }
+.approach-card:nth-child(3) h3 { color: var(--color-teal); }
+.approach-card:nth-child(4) h3 { color: var(--color-purple); }
 
 .approach-card p {
     color: var(--color-grey);
@@ -813,9 +811,6 @@ p {
 }
 
 /* === Contact Section === */
-.contact-section {
-    background-color: var(--color-white);
-}
 
 .contact-wrapper {
     display: grid;
@@ -984,7 +979,20 @@ p {
 .faq-category h2 {
     font-size: 1.875rem;
     margin-bottom: 1.75rem;
-    color: var(--color-brown);
+    color: var(--color-black);
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+.faq-category h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--color-silver-shine);
+    border-radius: 2px;
 }
 
 .faq-item {
@@ -1096,17 +1104,16 @@ p {
 .value-card h3 {
     font-size: 1.25rem;
     margin-bottom: 0.875rem;
-    color: var(--color-brown);
 }
+
+.value-card:nth-child(1) h3 { color: var(--color-orange); }
+.value-card:nth-child(2) h3 { color: var(--color-blue); }
+.value-card:nth-child(3) h3 { color: var(--color-teal); }
 
 .value-card p {
     color: var(--color-grey);
     margin: 0;
     font-size: 0.9375rem;
-}
-
-.positions-section {
-    background-color: var(--color-white);
 }
 
 .positions-list {
@@ -1177,8 +1184,14 @@ p {
 .benefit-card h4 {
     font-size: 1.125rem;
     margin-bottom: 0.75rem;
-    color: var(--color-brown);
 }
+
+.benefit-card:nth-child(1) h4 { color: var(--color-orange); }
+.benefit-card:nth-child(2) h4 { color: var(--color-blue); }
+.benefit-card:nth-child(3) h4 { color: var(--color-teal); }
+.benefit-card:nth-child(4) h4 { color: var(--color-purple); }
+.benefit-card:nth-child(5) h4 { color: var(--color-red); }
+.benefit-card:nth-child(6) h4 { color: var(--color-green); }
 
 .benefit-card p {
     color: var(--color-grey);
@@ -1471,8 +1484,8 @@ p {
     h2 { font-size: 1.875rem; }
     
     .hero {
-        height: 70vh;
-        min-height: 500px;
+        height: 50vh;
+        min-height: 400px;
     }
     
     .hero h1 {
