@@ -21,7 +21,8 @@
     --color-accent: #c0c0c0;
     --color-orange: #f5a97d;
     --color-blue: #7da3c6;
-    --color-red: #d87c7c;
+    --color-red: #A52A2A;
+    --color-red-hover: #8B2020;
     --color-teal: #7dc6b8;
     --color-purple: #a87dc6;
     --color-green: #8fc67d;
@@ -207,7 +208,7 @@ p {
     background-color: var(--color-red) !important;
     color: var(--color-white) !important;
     padding: 0.65rem 1.5rem !important;
-    border-radius: 6px;
+    border-radius: 2px;
 }
 
 .btn-contact::after {
@@ -215,9 +216,9 @@ p {
 }
 
 .btn-contact:hover {
-    background-color: #c96b6b !important;
+    background-color: var(--color-red-hover) !important;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(216, 124, 124, 0.25);
+    box-shadow: 0 4px 12px rgba(165, 42, 42, 0.25);
 }
 
 /* Dropdown */
@@ -230,7 +231,7 @@ p {
     top: 100%;
     left: 0;
     background-color: var(--color-white);
-    border-radius: 8px;
+    border-radius: 2px;
     box-shadow: var(--shadow-md);
     padding: 0.5rem 0;
     min-width: 200px;
@@ -270,7 +271,7 @@ p {
     padding: 0.875rem 2rem;
     font-size: 0.9375rem;
     font-weight: 600;
-    border-radius: 6px;
+    border-radius: 2px;
     transition: var(--transition);
     cursor: pointer;
 }
@@ -316,9 +317,9 @@ p {
 }
 
 .btn-red:hover {
-    background-color: #c96b6b;
+    background-color: var(--color-red-hover);
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 8px 20px rgba(216, 124, 124, 0.25);
+    box-shadow: 0 8px 20px rgba(165, 42, 42, 0.25);
 }
 
 .btn-outline {
@@ -340,9 +341,9 @@ p {
 }
 
 .btn-light:hover {
-    background-color: #c96b6b;
+    background-color: var(--color-red-hover);
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 8px 20px rgba(216, 124, 124, 0.25);
+    box-shadow: 0 8px 20px rgba(165, 42, 42, 0.25);
 }
 
 .btn-outline-light {
@@ -498,7 +499,7 @@ p {
     text-align: center;
     padding: 2rem 1.5rem;
     background-color: var(--color-bg);
-    border-radius: 8px;
+    border-radius: 2px;
     transition: var(--transition-smooth);
 }
 
@@ -534,7 +535,7 @@ p {
 .focus-card {
     padding: 2.25rem;
     background-color: var(--color-white);
-    border-radius: 10px;
+    border-radius: 2px;
     box-shadow: var(--shadow-sm);
     transition: var(--transition-smooth);
 }
@@ -550,7 +551,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
+    border-radius: 2px;
     margin-bottom: 1.25rem;
     color: var(--color-white);
     transition: var(--transition);
@@ -587,7 +588,7 @@ p {
 
 .portfolio-card {
     background-color: var(--color-white);
-    border-radius: 10px;
+    border-radius: 2px;
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     transition: var(--transition-smooth);
@@ -627,7 +628,7 @@ p {
     color: var(--color-black);
     font-size: 0.75rem;
     font-weight: 600;
-    border-radius: 20px;
+    border-radius: 2px;
     margin-bottom: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -652,7 +653,7 @@ p {
 
 .portfolio-link:hover {
     text-decoration: underline;
-    color: #c96b6b;
+    color: var(--color-red-hover);
 }
 
 /* === Timeline === */
@@ -706,7 +707,7 @@ p {
     color: var(--color-black);
     font-size: 0.8125rem;
     font-weight: 700;
-    border-radius: 20px;
+    border-radius: 2px;
     margin-bottom: 0.75rem;
 }
 
@@ -757,7 +758,7 @@ p {
     color: var(--color-white);
     font-size: 1.25rem;
     font-weight: 700;
-    border-radius: 10px;
+    border-radius: 2px;
     align-items: center;
     justify-content: center;
     margin-bottom: 1.25rem;
@@ -796,7 +797,7 @@ p {
 }
 
 .service-image {
-    border-radius: 10px;
+    border-radius: 2px;
     overflow: hidden;
     box-shadow: var(--shadow-md);
 }
@@ -864,7 +865,7 @@ p {
     flex-shrink: 0;
     width: 44px;
     height: 44px;
-    border-radius: 8px;
+    border-radius: 2px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -897,7 +898,7 @@ p {
 .office-hours {
     padding: 1.5rem;
     background-color: var(--color-bg);
-    border-radius: 8px;
+    border-radius: 2px;
 }
 
 .office-hours h4 {
@@ -914,7 +915,7 @@ p {
 .contact-form-wrapper {
     background-color: var(--color-beige);
     padding: 2.75rem;
-    border-radius: 10px;
+    border-radius: 2px;
 }
 
 .contact-form h3 {
@@ -939,7 +940,7 @@ p {
     width: 100%;
     padding: 0.875rem 1rem;
     border: 1px solid var(--color-grey-light);
-    border-radius: 6px;
+    border-radius: 2px;
     font-family: inherit;
     font-size: 0.9375rem;
     background-color: var(--color-white);
@@ -1020,7 +1021,7 @@ p {
 
 .faq-item {
     background-color: var(--color-white);
-    border-radius: 8px;
+    border-radius: 2px;
     margin-bottom: 0.875rem;
     overflow: hidden;
     transition: var(--transition);
@@ -1076,7 +1077,7 @@ p {
     text-align: center;
     padding: 3.5rem 2rem;
     background-color: var(--color-white);
-    border-radius: 10px;
+    border-radius: 2px;
     margin-top: 3.5rem;
 }
 
@@ -1113,7 +1114,7 @@ p {
 .value-card {
     padding: 2.25rem;
     background-color: var(--color-white);
-    border-radius: 10px;
+    border-radius: 2px;
     box-shadow: var(--shadow-sm);
     text-align: center;
     transition: var(--transition-smooth);
@@ -1147,7 +1148,7 @@ p {
 .position-card {
     padding: 1.875rem;
     background-color: var(--color-beige);
-    border-radius: 10px;
+    border-radius: 2px;
     margin-bottom: 1.25rem;
     transition: var(--transition-smooth);
 }
@@ -1180,7 +1181,7 @@ p {
     color: var(--color-silver);
     font-size: 0.8125rem;
     font-weight: 600;
-    border-radius: 20px;
+    border-radius: 2px;
 }
 
 .position-card > p {
@@ -1244,7 +1245,7 @@ p {
 
 .modal-content {
     background-color: var(--color-white);
-    border-radius: 10px;
+    border-radius: 2px;
     padding: 2.75rem;
     max-width: 600px;
     width: 100%;
