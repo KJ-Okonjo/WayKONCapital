@@ -294,7 +294,7 @@ function showNotification(message, type = 'info') {
         position: fixed;
         top: 100px;
         right: 20px;
-        background-color: ${type === 'success' ? '#3d3128' : '#525252'};
+        background-color: ${type === 'success' ? '#c0c0c0' : '#525252'};
         color: white;
         padding: 1rem 1.5rem;
         border-radius: 8px;
@@ -386,6 +386,6 @@ function isInViewport(element) {
 // ===================================
 // Console Welcome Message
 // ===================================
-console.log('%cWayKon Capital', 'font-size: 24px; font-weight: 700; color: #3d3128; font-family: Plus Jakarta Sans, Inter, sans-serif;');
+console.log('%cWayKon Capital', 'font-size: 24px; font-weight: 700; color: #c0c0c0; font-family: Plus Jakarta Sans, Inter, sans-serif;');
 console.log('%cBuilding the Future of Creative Industries', 'font-size: 14px; color: #525252; font-family: Inter, sans-serif;');
-console.log('%c\nInterested in joining our team? Check out our careers page!', 'font-size: 12px; color: #3d3128; font-family: Inter, sans-serif;');
+console.log('%c\nInterested in joining our team? Check out our careers page!', 'font-size: 12px; color: #c0c0c0; font-family: Inter, sans-serif;');
