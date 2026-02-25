@@ -322,6 +322,20 @@ p {
     box-shadow: 0 8px 20px rgba(165, 42, 42, 0.25);
 }
 
+.btn-text-red {
+    background-color: transparent;
+    color: var(--color-red);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+    border: none;
+}
+
+.btn-text-red:hover {
+    color: var(--color-red-hover);
+    transform: translateY(-2px);
+}
+
 .btn-outline {
     background-color: transparent;
     color: var(--color-silver);
