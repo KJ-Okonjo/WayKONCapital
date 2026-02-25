@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize all features
     initNavigation();
     initScrollAnimations();
+    initStatCounters();
     initFAQ();
     initForms();
     initSmoothScroll();
@@ -110,6 +111,59 @@ function initScrollAnimations() {
         }
         observer.observe(el);
     });
+}
+
+// ===================================
+// Stat Counter Animation
+// ===================================
+function initStatCounters() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    let hasAnimated = false;
+    
+    const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !hasAnimated) {
+                hasAnimated = true;
+                statNumbers.forEach(stat => {
+                    animateCounter(stat);
+                });
+            }
+        });
+    }, observerOptions);
+    
+    const statsSection = document.querySelector('.about-stats');
+    if (statsSection) {
+        observer.observe(statsSection);
+    }
+}
+
+function animateCounter(element) {
+    const target = parseInt(element.getAttribute('data-target'));
+    const duration = 1500; // Animation duration in ms
+    const increment = target / (duration / 16); // 60fps
+    let current = 0;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = formatNumber(target);
+            clearInterval(timer);
+        } else {
+            element.textContent = formatNumber(Math.floor(current));
+        }
+    }, 16);
+}
+
+function formatNumber(num) {
+    if (num >= 1000) {
+        return num.toLocaleString();
+    }
+    return num;
 }
 
 // ===================================
