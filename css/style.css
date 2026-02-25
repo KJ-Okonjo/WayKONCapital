@@ -1263,6 +1263,8 @@ p {
     padding: 2.75rem;
     max-width: 600px;
     width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
     position: relative;
 }
 
