@@ -1,0 +1,400 @@
+/* ===================================
+   Immersive Hero & Card Stacking
+   =================================== */
+
+/* === Fixed Navigation with Mix-Blend-Difference === */
+.navbar-immersive {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    mix-blend-mode: difference;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 1.5rem;
+}
+
+.nav-brand {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-links a {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+    opacity: 0.7;
+}
+
+.nav-toggle-immersive {
+    display: none;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.nav-toggle-immersive i {
+    width: 24px;
+    height: 24px;
+}
+
+/* === Immersive Hero === */
+.immersive-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 857px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Layer 1 - Background */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #fefefe 0%, #f5f3ef 100%);
+    background-size: cover;
+    background-position: center;
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform 0.1s ease-out;
+}
+
+.hero-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(245, 243, 239, 0.3) 0%, rgba(250, 249, 247, 0.8) 100%);
+    pointer-events: none;
+}
+
+.grain-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.02) 2px, rgba(0,0,0,0.02) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.02) 2px, rgba(0,0,0,0.02) 4px);
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+/* Hero Content Wrapper */
+.hero-content-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Layer 2 - Main Heading */
+.hero-main-heading {
+    position: relative;
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform 0.1s ease-out;
+    margin-bottom: 4rem;
+}
+
+.hero-main-heading h1 {
+    font-size: 12vw;
+    font-weight: 500;
+    color: #111111;
+    margin: 0;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+}
+
+/* Layer 3 - Secondary Label */
+.hero-label {
+    position: absolute;
+    left: calc(100% + 1rem);
+    top: 0;
+    font-size: 32px;
+    color: #111111;
+    font-weight: 400;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* Hero Bottom Description */
+.hero-description {
+    max-width: 48rem;
+    margin-top: auto;
+    padding-bottom: 6rem;
+}
+
+.hero-description p {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* === Card Stacking Portfolio Section === */
+.portfolio-stacking {
+    position: relative;
+    background-color: #faf9f7;
+}
+
+.portfolio-header {
+    padding: 8rem 2rem 4rem;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.portfolio-header h2 {
+    font-size: 8vw;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #111111;
+    margin-bottom: 1.5rem;
+}
+
+.portfolio-header p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: rgba(0, 0, 0, 0.7);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.stacking-cards-container {
+    position: relative;
+    padding-bottom: 4rem;
+}
+
+.stacking-card {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.stacking-card[data-index="1"] {
+    margin-top: -100vh;
+}
+
+.stacking-card[data-index="2"] {
+    margin-top: -100vh;
+}
+
+.card-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.stacking-card:hover .card-background {
+    transform: scale(1.05);
+}
+
+.card-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
+}
+
+.card-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 2rem;
+    color: #ffffff;
+}
+
+.card-category {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+.card-content h3 {
+    font-size: 4rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+.card-content p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+}
+
+.card-arrow {
+    font-size: 2rem;
+    color: #ffffff;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.stacking-card:hover .card-arrow {
+    opacity: 1;
+    transform: translateX(10px);
+}
+
+/* === Responsive Design === */
+@media (max-width: 1024px) {
+    .hero-main-heading h1 {
+        font-size: 14vw;
+    }
+
+    .hero-label {
+        font-size: 24px;
+        left: calc(100% + 0.5rem);
+    }
+
+    .portfolio-header h2 {
+        font-size: 10vw;
+    }
+
+    .card-content h3 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .nav-toggle-immersive {
+        display: block;
+    }
+
+    .immersive-hero {
+        min-height: 600px;
+    }
+
+    .hero-main-heading h1 {
+        font-size: 16vw;
+    }
+
+    .hero-label {
+        position: static;
+        display: block;
+        font-size: 18px;
+        margin-top: 1rem;
+    }
+
+    .hero-description {
+        padding-bottom: 4rem;
+    }
+
+    .hero-description p {
+        font-size: 1rem;
+    }
+
+    .portfolio-header {
+        padding: 6rem 1.5rem 3rem;
+    }
+
+    .portfolio-header h2 {
+        font-size: 14vw;
+    }
+
+    .portfolio-header p {
+        font-size: 1rem;
+    }
+
+    .stacking-card {
+        min-height: 80vh;
+    }
+
+    .card-content h3 {
+        font-size: 2.5rem;
+    }
+
+    .card-content p {
+        font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 1.5rem 1rem;
+    }
+
+    .hero-main-heading h1 {
+        font-size: 18vw;
+    }
+
+    .hero-label {
+        font-size: 16px;
+    }
+
+    .portfolio-header h2 {
+        font-size: 16vw;
+    }
+
+    .card-content h3 {
+        font-size: 2rem;
+    }
+
+    .card-content p {
+        font-size: 1rem;
+    }
+}
