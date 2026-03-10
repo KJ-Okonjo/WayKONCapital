@@ -3,168 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get in touch with WayKON Capital. Contact us about investment opportunities, partnerships, or to learn more about our work in creative industries.">
-    <meta name="keywords" content="contact, investment inquiries, partnership opportunities, creative industries">
+    <meta name="description" content="Contact WayKON Capital - Get in touch to discuss investment opportunities or partnerships.">
     <title>Contact - WayKON Capital</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/immersive-hero.css">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.1/dist/umd/lucide.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <a href="index.html">WayKON Capital</a>
+    <nav class="navbar-immersive scrolled">
+        <div class="nav-container">
+            <div class="nav-brand">WayKON Capital</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#portfolio">Portfolio</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
             </div>
-            <button class="nav-toggle" id="navToggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="nav-toggle-immersive" id="navToggleImmersive">
+                <i data-lucide="menu"></i>
             </button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html">Home</a></li>
-                <li class="dropdown">
-                    <a href="companies.html">Companies</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="companies.html#investment-focus">Investment Focus</a></li>
-                        <li><a href="companies.html#investments">Recent Investments</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="services.html">Services</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="services.html#advisory">Advisory</a></li>
-                        <li><a href="services.html#operations">Operations</a></li>
-                        <li><a href="services.html#growth">Growth Strategy</a></li>
-                    </ul>
-                </li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="careers.html">Careers</a></li>
-                <li><a href="contact.html" class="btn-contact active">Contact</a></li>
-            </ul>
         </div>
     </nav>
 
     <!-- Page Hero -->
-    <section class="page-hero">
-        <div class="container">
-            <div class="page-hero-content fade-in">
-                <h1>Get in Touch</h1>
-                <p>Let's start a conversation about your creative business</p>
-            </div>
-        </div>
+    <section class="page-hero-modern">
+        <h1>Get in Touch</h1>
+        <p>Let's discuss how we can work together to build something extraordinary</p>
     </section>
 
-    <!-- Contact Section -->
-    <section class="section contact-section">
+    <!-- Contact Form Section -->
+    <section class="section-modern">
         <div class="container">
-            <div class="contact-wrapper">
+            <div class="grid-2" style="align-items: start;">
                 <!-- Contact Info -->
-                <div class="contact-info fade-on-scroll">
-                    <h2>Contact Information</h2>
-                    <p>Whether you're raising capital, seeking strategic support, or exploring partnership opportunities, we'd love to hear from you.</p>
+                <div>
+                    <h2>Start a Conversation</h2>
+                    <p class="lead">Whether you're seeking investment, exploring partnerships, or have questions about our portfolio companies, we'd love to hear from you.</p>
                     
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                    <polyline points="22,6 12,13 2,6"></polyline>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4>Email</h4>
-                                <p><a href="mailto:info@waykoncapital.com">info@waykoncapital.com</a></p>
-                                <p><small>For investment inquiries: <a href="mailto:investments@waykoncapital.com">investments@waykoncapital.com</a></small></p>
-                            </div>
+                    <div style="margin-top: 3rem;">
+                        <div style="margin-bottom: 2.5rem;">
+                            <h4>Email</h4>
+                            <p><a href="mailto:info@waykoncapital.com" style="color: var(--color-black); text-decoration: underline;">info@waykoncapital.com</a></p>
                         </div>
 
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4>Location</h4>
-                                <p>London, UK & Lagos, Nigeria</p>
-                            </div>
+                        <div style="margin-bottom: 2.5rem;">
+                            <h4>Locations</h4>
+                            <p style="color: var(--color-grey); margin-bottom: 0.5rem;">London, United Kingdom</p>
+                            <p style="color: var(--color-grey);">Lagos, Nigeria</p>
                         </div>
-                    </div>
 
-                    <div class="office-hours">
-                        <h4>Response Times</h4>
-                        <p>We typically respond within 2-3 business days (GMT).</p>
+                        <div>
+                            <h4>Office Hours</h4>
+                            <p style="color: var(--color-grey);">Monday - Friday: 9:00 AM - 6:00 PM GMT</p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Contact Form -->
-                <div class="contact-form-wrapper fade-on-scroll">
-                    <h3>Send Us a Message</h3>
-                    <form id="contactForm" class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Name *</label>
+                <div class="card-modern">
+                    <h3 style="margin-bottom: 2rem;">Send us a message</h3>
+                    <form class="form-modern" id="contactForm">
+                        <div class="form-group-modern">
+                            <label for="name">Full Name *</label>
                             <input type="text" id="name" name="name" required>
                         </div>
 
-                        <div class="form-group">
-                            <label for="email">Email *</label>
+                        <div class="form-group-modern">
+                            <label for="email">Email Address *</label>
                             <input type="email" id="email" name="email" required>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group-modern">
                             <label for="company">Company / Organization</label>
                             <input type="text" id="company" name="company">
                         </div>
 
-                        <div class="form-group">
-                            <label for="subject">Subject *</label>
-                            <select id="subject" name="subject" required>
-                                <option value="">Select a subject</option>
-                                <option value="investment">Investment Inquiry</option>
-                                <option value="partnership">Partnership Opportunity</option>
-                                <option value="advisory">Advisory Services</option>
-                                <option value="career">Career Opportunities</option>
-                                <option value="other">Other</option>
+                        <div class="form-group-modern">
+                            <label for="inquiry">Inquiry Type *</label>
+                            <select id="inquiry" name="inquiry" required>
+                                <option value="">Select an option</option>
+                                <option value="investment">Investment Opportunity</option>
+                                <option value="partnership">Partnership Inquiry</option>
+                                <option value="services">Services Inquiry</option>
+                                <option value="general">General Inquiry</option>
                             </select>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group-modern">
                             <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="6" required placeholder="Tell us a bit about your business, project, or inquiry..."></textarea>
-                            <small>Please include relevant details such as stage, industry, and what you're looking for.</small>
+                            <textarea id="message" name="message" required></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                        <button type="submit" class="btn-modern btn-modern-primary" style="width: 100%;">Send Message</button>
 
-                        <p class="form-note">We typically respond within 1-2 business days.</p>
+                        <p style="margin-top: 1.5rem; font-size: 0.875rem; color: var(--color-grey); text-align: center;">
+                            We'll respond to your inquiry within 24-48 hours during business days.
+                        </p>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- Additional Contact Options -->
+    <section class="section-modern-alt">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
+            <div class="section-header-modern">
+                <h2>Other Ways to Connect</h2>
+                <div class="divider-modern"></div>
+            </div>
+
+            <div class="grid-3">
+                <div class="card-modern" style="text-align: center;">
+                    <i data-lucide="briefcase" style="width: 48px; height: 48px; margin: 0 auto 1.5rem; color: var(--color-black);"></i>
+                    <h3>For Entrepreneurs</h3>
+                    <p>Seeking investment or strategic partnership? Share your pitch deck and company overview.</p>
+                    <a href="mailto:invest@waykoncapital.com" class="btn-modern btn-modern-secondary" style="margin-top: 1.5rem;">Send Pitch</a>
+                </div>
+
+                <div class="card-modern" style="text-align: center;">
+                    <i data-lucide="users" style="width: 48px; height: 48px; margin: 0 auto 1.5rem; color: var(--color-black);"></i>
+                    <h3>For Partners</h3>
+                    <p>Interested in collaborating or exploring synergies with our portfolio companies?</p>
+                    <a href="mailto:partners@waykoncapital.com" class="btn-modern btn-modern-secondary" style="margin-top: 1.5rem;">Partner Inquiry</a>
+                </div>
+
+                <div class="card-modern" style="text-align: center;">
+                    <i data-lucide="file-text" style="width: 48px; height: 48px; margin: 0 auto 1.5rem; color: var(--color-black);"></i>
+                    <h3>For Media</h3>
+                    <p>Press inquiries, interview requests, or media kit requests.</p>
+                    <a href="mailto:press@waykoncapital.com" class="btn-modern btn-modern-secondary" style="margin-top: 1.5rem;">Media Contact</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-modern">
+        <div class="footer-container">
+            <div class="footer-content-modern">
+                <div class="footer-section-modern">
                     <h3>WayKON Capital</h3>
                     <p>Building the future of creative industries through strategic investment and operational excellence.</p>
                 </div>
-                <div class="footer-section">
+                <div class="footer-section-modern">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="companies.html">Companies</a></li>
                         <li><a href="services.html">Services</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
                         <li><a href="careers.html">Careers</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                <div class="footer-section-modern">
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="contact.html">Get in Touch</a></li>
@@ -172,7 +167,7 @@
                         <li>info@waykoncapital.com</li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                <div class="footer-section-modern">
                     <h4>Legal</h4>
                     <ul>
                         <li><a href="#">Privacy Policy</a></li>
@@ -181,12 +176,22 @@
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div class="footer-bottom-modern">
                 <p>&copy; 2026 WayKON Capital. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/immersive-hero.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Simple form handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you soon.');
+            this.reset();
+        });
+    </script>
 </body>
 </html>

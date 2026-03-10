@@ -1,29 +1,39 @@
 /* ===================================
    Immersive Hero & Card Stacking
+   WayKON Capital - Light Theme
    =================================== */
 
-/* === Fixed Navigation with Mix-Blend-Difference === */
+/* === Fixed Navigation === */
 .navbar-immersive {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 50;
-    mix-blend-mode: difference;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-immersive.scrolled {
+    background-color: rgba(250, 249, 247, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 1.5rem;
+    padding: 2rem 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .nav-brand {
     font-size: 18px;
     font-weight: 500;
     letter-spacing: -0.01em;
-    color: #ffffff;
+    color: #111111;
 }
 
 .nav-links {
@@ -35,20 +45,20 @@
     font-size: 18px;
     font-weight: 500;
     letter-spacing: -0.01em;
-    color: #ffffff;
+    color: #111111;
     text-decoration: none;
     transition: opacity 0.3s ease;
 }
 
 .nav-links a:hover {
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 .nav-toggle-immersive {
     display: none;
     background: none;
     border: none;
-    color: #ffffff;
+    color: #111111;
     cursor: pointer;
 }
 
@@ -62,23 +72,22 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    min-height: 857px;
+    min-height: 700px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(135deg, #fefefe 0%, #f5f3ef 50%, #faf9f7 100%);
 }
 
-/* Layer 1 - Background */
+/* Background Layer with Gradient */
 .hero-background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #fefefe 0%, #f5f3ef 100%);
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(135deg, #fefefe 0%, #f5f3ef 50%, #faf9f7 100%);
     transform-style: preserve-3d;
     will-change: transform;
     transition: transform 0.1s ease-out;
@@ -91,7 +100,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at center, rgba(245, 243, 239, 0.3) 0%, rgba(250, 249, 247, 0.8) 100%);
+    background: radial-gradient(circle at 30% 50%, rgba(240, 240, 240, 0.4) 0%, transparent 60%);
     pointer-events: none;
 }
 
@@ -102,9 +111,9 @@
     width: 100%;
     height: 100%;
     background-image: 
-        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.02) 2px, rgba(0,0,0,0.02) 4px),
-        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.02) 2px, rgba(0,0,0,0.02) 4px);
-    opacity: 0.4;
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.015) 2px, rgba(0,0,0,0.015) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.015) 2px, rgba(0,0,0,0.015) 4px);
+    opacity: 0.5;
     pointer-events: none;
 }
 
@@ -114,55 +123,54 @@
     z-index: 2;
     width: 100%;
     max-width: 1400px;
-    padding: 0 2rem;
+    padding: 0 3rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    text-align: center;
+    text-align: left;
 }
 
-/* Layer 2 - Main Heading */
+/* Main Heading */
 .hero-main-heading {
     position: relative;
     transform-style: preserve-3d;
     will-change: transform;
     transition: transform 0.1s ease-out;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 
 .hero-main-heading h1 {
-    font-size: 12vw;
+    font-size: 8vw;
     font-weight: 500;
     color: #111111;
     margin: 0;
-    line-height: 0.9;
+    line-height: 0.95;
     letter-spacing: -0.03em;
 }
 
-/* Layer 3 - Secondary Label */
+/* Secondary Label - Top Right */
 .hero-label {
     position: absolute;
-    left: calc(100% + 1rem);
-    top: 0;
-    font-size: 32px;
-    color: #111111;
+    right: 3rem;
+    top: 8rem;
+    font-size: 20px;
+    color: #666666;
     font-weight: 400;
-    white-space: nowrap;
     letter-spacing: 0.05em;
     opacity: 1;
     transition: opacity 0.3s ease;
+    text-transform: uppercase;
 }
 
 /* Hero Bottom Description */
 .hero-description {
-    max-width: 48rem;
-    margin-top: auto;
-    padding-bottom: 6rem;
+    max-width: 600px;
+    margin-top: 2rem;
 }
 
 .hero-description p {
-    color: rgba(0, 0, 0, 0.7);
+    color: rgba(0, 0, 0, 0.6);
     font-size: 1.125rem;
     line-height: 1.7;
     margin: 0;
@@ -172,18 +180,19 @@
 .portfolio-stacking {
     position: relative;
     background-color: #faf9f7;
+    padding-top: 8rem;
 }
 
 .portfolio-header {
-    padding: 8rem 2rem 4rem;
-    text-align: center;
-    max-width: 900px;
+    padding: 0 3rem 6rem;
+    text-align: left;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
 .portfolio-header h2 {
-    font-size: 8vw;
-    font-weight: 600;
+    font-size: 6vw;
+    font-weight: 500;
     letter-spacing: -0.02em;
     color: #111111;
     margin-bottom: 1.5rem;
@@ -192,41 +201,42 @@
 .portfolio-header p {
     font-size: 1.125rem;
     line-height: 1.7;
-    color: rgba(0, 0, 0, 0.7);
-    max-width: 600px;
-    margin: 0 auto;
+    color: rgba(0, 0, 0, 0.6);
+    max-width: 700px;
+    margin: 0;
 }
 
 .stacking-cards-container {
     position: relative;
-    padding-bottom: 4rem;
+    padding-bottom: 8rem;
 }
 
 .stacking-card {
     position: sticky;
-    top: 0;
+    top: 100px;
     width: 100%;
-    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    min-height: 600px;
     display: flex;
     align-items: center;
-    justify-content: center;
     overflow: hidden;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
     transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
 
-.stacking-card[data-index="1"] {
-    margin-top: -100vh;
-}
-
-.stacking-card[data-index="2"] {
-    margin-top: -100vh;
+.stacking-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
 }
 
 .card-background {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 50%;
     height: 100%;
     background-size: cover;
     background-position: center;
@@ -244,81 +254,160 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
+    background: linear-gradient(90deg, transparent 0%, rgba(26, 26, 26, 0.8) 100%);
 }
 
 .card-content {
     position: relative;
     z-index: 2;
-    max-width: 800px;
-    padding: 0 2rem;
+    width: 50%;
+    margin-left: 50%;
+    padding: 4rem 4rem 4rem 3rem;
     color: #ffffff;
 }
 
 .card-category {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 2px;
-    font-size: 0.875rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .card-content h3 {
-    font-size: 4rem;
-    font-weight: 600;
+    font-size: 3rem;
+    font-weight: 500;
     letter-spacing: -0.02em;
     margin-bottom: 1.5rem;
     color: #ffffff;
+    line-height: 1.1;
 }
 
 .card-content p {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     line-height: 1.7;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.8);
     margin-bottom: 2rem;
 }
 
 .card-arrow {
-    font-size: 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
     color: #ffffff;
-    opacity: 0.7;
+    font-weight: 500;
+    opacity: 0.9;
     transition: all 0.3s ease;
 }
 
-.stacking-card:hover .card-arrow {
-    opacity: 1;
-    transform: translateX(10px);
+.card-arrow::after {
+    content: '→';
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.stacking-card:hover .card-arrow::after {
+    transform: translateX(6px);
+}
+
+/* Card Tech Stack Tags */
+.card-tags {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.card-tag {
+    padding: 0.375rem 0.875rem;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
 }
 
 /* === Responsive Design === */
 @media (max-width: 1024px) {
+    .nav-container {
+        padding: 2rem;
+    }
+
+    .hero-content-wrapper {
+        padding: 0 2rem;
+    }
+
     .hero-main-heading h1 {
-        font-size: 14vw;
-    }
-
-    .hero-label {
-        font-size: 24px;
-        left: calc(100% + 0.5rem);
-    }
-
-    .portfolio-header h2 {
         font-size: 10vw;
     }
 
+    .hero-label {
+        right: 2rem;
+        top: 6rem;
+        font-size: 18px;
+    }
+
+    .portfolio-header {
+        padding: 0 2rem 4rem;
+    }
+
+    .portfolio-header h2 {
+        font-size: 8vw;
+    }
+
+    .stacking-card {
+        flex-direction: column;
+        min-height: 700px;
+        margin-bottom: 3rem;
+    }
+
+    .card-background {
+        width: 100%;
+        height: 50%;
+    }
+
+    .card-background::before {
+        background: linear-gradient(180deg, transparent 0%, rgba(26, 26, 26, 0.9) 100%);
+    }
+
+    .card-content {
+        width: 100%;
+        margin-left: 0;
+        padding: 3rem 2rem;
+    }
+
     .card-content h3 {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 }
 
 @media (max-width: 768px) {
     .nav-links {
-        display: none;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background-color: rgba(250, 249, 247, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 6rem 2rem 2rem;
+        gap: 2rem;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        right: 0;
     }
 
     .nav-toggle-immersive {
@@ -330,64 +419,31 @@
     }
 
     .hero-main-heading h1 {
-        font-size: 16vw;
+        font-size: 14vw;
     }
 
     .hero-label {
         position: static;
         display: block;
-        font-size: 18px;
         margin-top: 1rem;
+        font-size: 16px;
     }
 
     .hero-description {
-        padding-bottom: 4rem;
+        margin-top: 3rem;
     }
 
     .hero-description p {
         font-size: 1rem;
     }
 
-    .portfolio-header {
-        padding: 6rem 1.5rem 3rem;
-    }
-
     .portfolio-header h2 {
-        font-size: 14vw;
-    }
-
-    .portfolio-header p {
-        font-size: 1rem;
+        font-size: 12vw;
     }
 
     .stacking-card {
-        min-height: 80vh;
-    }
-
-    .card-content h3 {
-        font-size: 2.5rem;
-    }
-
-    .card-content p {
-        font-size: 1.125rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .nav-container {
-        padding: 1.5rem 1rem;
-    }
-
-    .hero-main-heading h1 {
-        font-size: 18vw;
-    }
-
-    .hero-label {
-        font-size: 16px;
-    }
-
-    .portfolio-header h2 {
-        font-size: 16vw;
+        min-height: 600px;
+        border-radius: 16px;
     }
 
     .card-content h3 {
@@ -396,5 +452,35 @@
 
     .card-content p {
         font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 1.5rem;
+    }
+
+    .hero-content-wrapper {
+        padding: 0 1.5rem;
+    }
+
+    .hero-main-heading h1 {
+        font-size: 16vw;
+    }
+
+    .portfolio-header {
+        padding: 0 1.5rem 3rem;
+    }
+
+    .portfolio-header h2 {
+        font-size: 14vw;
+    }
+
+    .card-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .card-content h3 {
+        font-size: 1.75rem;
     }
 }

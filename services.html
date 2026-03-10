@@ -3,223 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="WayKON Capital provides strategic advisory, operational support, and growth strategy services to creative businesses across fashion, music, art, advertising, and media.">
-    <meta name="keywords" content="creative industries, investment advisory, operational management, growth strategy, fashion consulting, music business, media strategy">
+    <meta name="description" content="WayKON Capital Services - Strategic advisory, operational support, and growth strategy for creative businesses.">
     <title>Services - WayKON Capital</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/immersive-hero.css">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.1/dist/umd/lucide.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <a href="index.html">WayKON Capital</a>
+    <nav class="navbar-immersive scrolled">
+        <div class="nav-container">
+            <div class="nav-brand">WayKON Capital</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#portfolio">Portfolio</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
             </div>
-            <button class="nav-toggle" id="navToggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="nav-toggle-immersive" id="navToggleImmersive">
+                <i data-lucide="menu"></i>
             </button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html">Home</a></li>
-                <li class="dropdown">
-                    <a href="companies.html">Companies</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="companies.html#investment-focus">Investment Focus</a></li>
-                        <li><a href="companies.html#investments">Recent Investments</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="services.html" class="active">Services</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#advisory">Advisory</a></li>
-                        <li><a href="#operations">Operations</a></li>
-                        <li><a href="#growth">Growth Strategy</a></li>
-                    </ul>
-                </li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="careers.html">Careers</a></li>
-                <li><a href="contact.html" class="btn-contact">Contact</a></li>
-            </ul>
         </div>
     </nav>
 
     <!-- Page Hero -->
-    <section class="page-hero">
+    <section class="page-hero-modern">
+        <h1>Our Services</h1>
+        <p>Strategic support and operational excellence for creative businesses ready to scale</p>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="section-modern">
         <div class="container">
-            <div class="page-hero-content fade-in">
-                <h1>Our Services</h1>
-                <p>Strategic support for creative businesses at every stage of growth</p>
+            <div class="section-header-modern">
+                <h2>How We Support Your Growth</h2>
+                <div class="divider-modern"></div>
+                <p>We provide comprehensive support across strategy, operations, and growth, helping creative businesses reach their full potential.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="card-modern">
+                    <h3>Strategic Advisory</h3>
+                    <p>Business strategy, market positioning, competitive analysis, and long-term planning to guide your company's direction.</p>
+                </div>
+
+                <div class="card-modern">
+                    <h3>Operational Support</h3>
+                    <p>Process optimization, team building, financial management, and operational infrastructure to scale efficiently.</p>
+                </div>
+
+                <div class="card-modern">
+                    <h3>Growth Strategy</h3>
+                    <p>Market expansion, partnership development, brand positioning, and revenue optimization for sustainable growth.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Service 1: Strategic Advisory -->
-    <section class="service-detail" id="advisory">
+    <!-- Detailed Services -->
+    <section class="section-modern-alt">
         <div class="container">
-            <div class="service-content fade-on-scroll">
-                <div class="service-text">
-                    <div class="service-tag">01</div>
+            <div class="grid-2">
+                <div>
                     <h2>Strategic Advisory</h2>
-                    <p class="lead">We work alongside founders and management teams to define vision, refine strategy, and navigate critical business decisions in the creative industries.</p>
-                    <ul class="service-list">
-                        <li>
-                            <strong>Business Model Innovation</strong>
-                            Evolving revenue models for fashion, music, and media businesses in the digital age
-                        </li>
-                        <li>
-                            <strong>Market Positioning & Brand Strategy</strong>
-                            Defining unique market positions and building distinctive creative brands
-                        </li>
-                        <li>
-                            <strong>Partnership Development</strong>
-                            Connecting portfolio companies with strategic partners, distributors, and collaborators
-                        </li>
-                        <li>
-                            <strong>Capital Structure & Financing</strong>
-                            Optimizing funding strategies and connecting founders with follow-on investors
-                        </li>
+                    <p class="lead">Expert guidance to navigate complex business decisions and unlock new opportunities.</p>
+                    <ul style="list-style: none; margin-top: 2rem;">
+                        <li style="margin-bottom: 1rem;"><strong>Business Strategy</strong><br><span style="color: var(--color-grey);">Define clear goals, competitive positioning, and actionable roadmaps</span></li>
+                        <li style="margin-bottom: 1rem;"><strong>Market Analysis</strong><br><span style="color: var(--color-grey);">Deep market research, trend analysis, and opportunity identification</span></li>
+                        <li style="margin-bottom: 1rem;"><strong>Financial Planning</strong><br><span style="color: var(--color-grey);">Capital structure, fundraising strategy, and financial modeling</span></li>
+                        <li style="margin-bottom: 1rem;"><strong>Risk Management</strong><br><span style="color: var(--color-grey);">Identify and mitigate key business risks across all operations</span></li>
                     </ul>
                 </div>
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop" alt="Strategic Advisory">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&q=80" alt="Strategic Advisory" style="width: 100%; height: 500px; object-fit: cover; border-radius: 16px; box-shadow: var(--shadow-md);">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Service 2: Operational Excellence -->
-    <section class="service-detail alt" id="operations">
+    <section class="section-modern">
         <div class="container">
-            <div class="service-content reverse fade-on-scroll">
-                <div class="service-text">
-                    <div class="service-tag">02</div>
-                    <h2>Operational Excellence</h2>
-                    <p class="lead">We help creative businesses build robust operations, optimize workflows, and implement systems that enable sustainable growth without compromising artistic integrity.</p>
-                    <ul class="service-list">
-                        <li>
-                            <strong>Talent Acquisition & Team Building</strong>
-                            Recruiting top creative and operational talent across design, production, and management
-                        </li>
-                        <li>
-                            <strong>Supply Chain & Production Management</strong>
-                            Optimizing manufacturing, distribution, and fulfillment for fashion and goods businesses
-                        </li>
-                        <li>
-                            <strong>Technology & Systems Implementation</strong>
-                            Deploying creative tools, e-commerce platforms, and content management systems
-                        </li>
-                        <li>
-                            <strong>Financial Planning & Management</strong>
-                            Building financial infrastructure, budgeting processes, and performance tracking
-                        </li>
-                    </ul>
+            <div class="grid-2">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop&q=80" alt="Operational Support" style="width: 100%; height: 500px; object-fit: cover; border-radius: 16px; box-shadow: var(--shadow-md);">
                 </div>
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop" alt="Operational Excellence">
+                <div>
+                    <h2>Operational Support</h2>
+                    <p class="lead">Build efficient systems and processes that enable sustainable scaling.</p>
+                    <ul style="list-style: none; margin-top: 2rem;">
+                        <li style="margin-bottom: 1rem;"><strong>Process Optimization</strong><br><span style="color: var(--color-grey);">Streamline operations, reduce costs, and improve efficiency</span></li>
+                        <li style="margin-bottom: 1rem;"><strong>Team Development</strong><br><span style="color: var(--color-grey);">Talent acquisition, organizational design, and culture building</span></li>
+                        <li style="margin-bottom: 1rem;"><strong>Technology Stack</strong><br><span style="color: var(--color-grey);">Select and implement the right tools for your business needs</span></li>
+                        <li style="margin-bottom: 1rem;"><strong>Performance Metrics</strong><br><span style="color: var(--color-grey);">Establish KPIs, dashboards, and data-driven decision making</span></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Service 3: Growth Strategy -->
-    <section class="service-detail" id="growth">
+    <section class="section-modern-alt">
         <div class="container">
-            <div class="service-content fade-on-scroll">
-                <div class="service-text">
-                    <div class="service-tag">03</div>
-                    <h2>Growth & Scaling</h2>
-                    <p class="lead">We support portfolio companies in expanding their reach, entering new markets, and scaling creatively and commercially while maintaining brand authenticity.</p>
-                    <ul class="service-list">
-                        <li>
-                            <strong>Audience Development & Marketing</strong>
-                            Building communities, growing audiences, and developing effective marketing campaigns
-                        </li>
-                        <li>
-                            <strong>Channel Expansion & Distribution</strong>
-                            Launching new channels, entering retail, expanding digital presence, and international growth
-                        </li>
-                        <li>
-                            <strong>Product & Content Development</strong>
-                            Developing new collections, content formats, product lines, and creative offerings
-                        </li>
-                        <li>
-                            <strong>M&A and Strategic Partnerships</strong>
-                            Identifying acquisition targets, merger opportunities, and strategic collaborations
-                        </li>
+            <div class="grid-2">
+                <div>
+                    <h2>Growth Strategy</h2>
+                    <p class="lead">Accelerate revenue and market presence through strategic expansion.</p>
+                    <ul style="list-style: none; margin-top: 2rem;">
+                        <li style="margin-bottom: 1rem;"><strong>Market Expansion</strong><br><span style="color: var(--color-grey);">Enter new markets, territories, and customer segments</span></li>
+                        <li style="margin-bottom: 1rem;"><strong>Partnership Development</strong><br><span style="color: var(--color-grey);">Strategic alliances, channel partnerships, and collaborations</span></li>
+                        <li style="margin-bottom: 1rem;"><strong>Brand Positioning</strong><br><span style="color: var(--color-grey);">Strengthen brand identity, messaging, and market perception</span></li>
+                        <li style="margin-bottom: 1rem;"><strong>Revenue Optimization</strong><br><span style="color: var(--color-grey);">Pricing strategy, monetization models, and revenue streams</span></li>
                     </ul>
                 </div>
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="Growth Strategy">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&q=80" alt="Growth Strategy" style="width: 100%; height: 500px; object-fit: cover; border-radius: 16px; box-shadow: var(--shadow-md);">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Our Approach -->
-    <section class="section approach-section">
+    <section class="section-modern">
         <div class="container">
-            <div class="section-header fade-on-scroll">
+            <div class="section-header-modern">
                 <h2>Our Approach</h2>
-                <div class="divider"></div>
-                <p>A disciplined, collaborative methodology tailored to creative businesses</p>
+                <div class="divider-modern"></div>
+                <p>A structured methodology that combines strategic thinking with hands-on execution.</p>
             </div>
-            <div class="approach-grid">
-                <div class="approach-card fade-on-scroll">
-                    <h3>Partner, Not Control</h3>
-                    <p>We work alongside founders as trusted partners, respecting creative vision while bringing strategic rigor.</p>
+
+            <div class="grid-4">
+                <div style="text-align: center;">
+                    <h3>01</h3>
+                    <h4>Discovery</h4>
+                    <p style="color: var(--color-grey);">Deep dive into your business, market, and opportunities</p>
                 </div>
-                <div class="approach-card fade-on-scroll">
-                    <h3>Long-Term Focus</h3>
-                    <p>We invest with multi-year horizons, giving creative businesses time to build sustainably.</p>
+                <div style="text-align: center;">
+                    <h3>02</h3>
+                    <h4>Strategy</h4>
+                    <p style="color: var(--color-grey);">Develop comprehensive plans aligned with your goals</p>
                 </div>
-                <div class="approach-card fade-on-scroll">
-                    <h3>Network Effect</h3>
-                    <p>Portfolio companies benefit from our network of industry leaders, creative partners, and advisors.</p>
+                <div style="text-align: center;">
+                    <h3>03</h3>
+                    <h4>Execution</h4>
+                    <p style="color: var(--color-grey);">Hands-on implementation with measurable outcomes</p>
                 </div>
-                <div class="approach-card fade-on-scroll">
-                    <h3>Data-Informed Creativity</h3>
-                    <p>We combine creative intuition with data, analytics, and performance insights to guide decisions.</p>
+                <div style="text-align: center;">
+                    <h3>04</h3>
+                    <h4>Optimization</h4>
+                    <p style="color: var(--color-grey);">Continuous improvement and performance tracking</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content fade-on-scroll">
-                <h2>Let's Work Together</h2>
-                <p>Whether you're raising capital or seeking strategic support, we'd love to hear from you</p>
-                <div class="cta-buttons">
-                    <a href="contact.html" class="btn btn-light">Get in Touch</a>
-                    <a href="companies.html" class="btn btn-outline-light">View Portfolio</a>
+    <section class="cta-section-modern">
+        <div class="cta-container">
+            <div class="cta-content-modern">
+                <h2>Ready to Scale Your Business?</h2>
+                <p>Let's discuss how we can support your growth journey</p>
+                <div class="cta-buttons-modern">
+                    <a href="contact.html" class="btn-modern btn-modern-primary">Get in Touch</a>
+                    <a href="index.html#portfolio" class="btn-modern btn-modern-secondary">View Portfolio</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
+    <footer class="footer-modern">
+        <div class="footer-container">
+            <div class="footer-content-modern">
+                <div class="footer-section-modern">
                     <h3>WayKON Capital</h3>
                     <p>Building the future of creative industries through strategic investment and operational excellence.</p>
                 </div>
-                <div class="footer-section">
+                <div class="footer-section-modern">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="companies.html">Companies</a></li>
                         <li><a href="services.html">Services</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
                         <li><a href="careers.html">Careers</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                <div class="footer-section-modern">
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="contact.html">Get in Touch</a></li>
@@ -227,7 +197,7 @@
                         <li>info@waykoncapital.com</li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                <div class="footer-section-modern">
                     <h4>Legal</h4>
                     <ul>
                         <li><a href="#">Privacy Policy</a></li>
@@ -236,12 +206,15 @@
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div class="footer-bottom-modern">
                 <p>&copy; 2026 WayKON Capital. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/immersive-hero.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
