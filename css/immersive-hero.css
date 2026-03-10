@@ -216,14 +216,15 @@
     margin: 0;
 }
 
-/* === Card Stacking Portfolio Section === */
+/* === Card Stacking Portfolio Section with Extended Gradient === */
 .portfolio-stacking {
     position: relative;
     background: linear-gradient(to bottom, 
         rgba(250, 249, 247, 0) 0%, 
-        rgba(250, 249, 247, 0.5) 10%, 
-        #faf9f7 20%);
-    padding-top: 8rem;
+        rgba(250, 249, 247, 0.3) 5%,
+        rgba(250, 249, 247, 0.6) 15%, 
+        #faf9f7 30%);
+    padding-top: 12rem;
 }
 
 .portfolio-header {
@@ -436,7 +437,7 @@
 /* === About Section === */
 .about-section-modern {
     background: var(--color-white);
-    padding: 8rem 0;
+    padding: 4rem 0 8rem;
 }
 
 .about-content-modern {
@@ -483,6 +484,11 @@
     font-size: 0.9375rem;
 }
 
+/* === CTA Section Reduced Padding === */
+.cta-section-modern {
+    padding: 4rem 0 !important;
+}
+
 /* === Mobile Optimizations === */
 @media (max-width: 1024px) {
     .nav-container {
@@ -508,6 +514,10 @@
 
     .hero-description p {
         font-size: 1rem;
+    }
+
+    .portfolio-stacking {
+        padding-top: 10rem;
     }
 
     .portfolio-header {
@@ -551,6 +561,10 @@
 
     .about-stats-modern {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-section-modern {
+        padding: 3rem 0 6rem;
     }
 }
 
@@ -611,7 +625,7 @@
     }
 
     .portfolio-stacking {
-        padding-top: 5rem;
+        padding-top: 8rem;
     }
 
     .portfolio-header {
@@ -656,7 +670,7 @@
     }
 
     .about-section-modern {
-        padding: 5rem 0;
+        padding: 3rem 0 5rem;
     }
 
     .about-stats-modern {
@@ -709,7 +723,7 @@
     }
 
     .portfolio-stacking {
-        padding-top: 4rem;
+        padding-top: 6rem;
     }
 
     .portfolio-header {
@@ -747,7 +761,7 @@
     }
 
     .about-section-modern {
-        padding: 4rem 0;
+        padding: 2.5rem 0 4rem;
     }
 
     .stat-card-modern {

@@ -87,7 +87,42 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     });
     
-    // Glowing button effect
+    
+    // ===================================
+    // FAQ Collapse Functionality
+    // ===================================
+    
+    const faqItems = document.querySelectorAll('.faq-item-modern');
+    
+    faqItems.forEach(item => {
+        const questionBtn = item.querySelector('.faq-question-btn');
+        
+        if (questionBtn) {
+            questionBtn.addEventListener('click', function() {
+                // Toggle active class
+                const wasActive = item.classList.contains('active');
+                
+                // Close all other FAQs in the same grid
+                const parentGrid = item.closest('.faq-grid');
+                if (parentGrid) {
+                    parentGrid.querySelectorAll('.faq-item-modern').forEach(faq => {
+                        faq.classList.remove('active');
+                    });
+                }
+                
+                // Toggle current item
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        }
+    });
+    
+    
+    // ===================================
+    // Glowing Button Effect
+    // ===================================
+    
     const glowButtons = document.querySelectorAll('.btn-glow');
     
     glowButtons.forEach(button => {
@@ -101,9 +136,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Smooth animations for mobile
+    
+    // ===================================
+    // Mobile Touch Optimizations
+    // ===================================
+    
     if ('ontouchstart' in window) {
-        document.querySelectorAll('.tab-button, .btn-glow, .position-card-modern').forEach(el => {
+        document.querySelectorAll('.tab-button, .btn-glow, .position-card-modern, .faq-question-btn').forEach(el => {
             el.style.transition = 'all 0.2s ease';
         });
     }
