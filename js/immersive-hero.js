@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroBackground = document.getElementById('heroBackground');
     const heroHeading = document.getElementById('heroHeading');
     const heroLabel = document.querySelector('.hero-label');
+    const navbar = document.querySelector('.navbar-immersive');
     
     let ticking = false;
     
@@ -15,27 +16,40 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!ticking) {
             window.requestAnimationFrame(function() {
                 const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-                const heroHeight = heroSection.offsetHeight;
                 
-                // Calculate scroll progress (0 to 1) for the first 30% of viewport scroll
-                const scrollProgress = Math.min(scrollY / (window.innerHeight * 0.3), 1);
-                
-                // Background scale: 1.0 → 1.27
-                const bgScale = 1 + (scrollProgress * 0.27);
-                if (heroBackground) {
-                    heroBackground.style.transform = `scale(${bgScale})`;
+                // Navbar background on scroll
+                if (navbar && !navbar.classList.contains('scrolled')) {
+                    if (scrollY > 50) {
+                        navbar.classList.add('scrolled');
+                    }
+                } else if (navbar && scrollY <= 50) {
+                    navbar.classList.remove('scrolled');
                 }
                 
-                // Heading scale: 1.0 → 0.89 (inverse)
-                const headingScale = 1 - (scrollProgress * 0.11);
-                if (heroHeading) {
-                    heroHeading.style.transform = `scale(${headingScale})`;
-                }
-                
-                // Label fade out
-                if (heroLabel) {
-                    const labelOpacity = 1 - scrollProgress;
-                    heroLabel.style.opacity = labelOpacity;
+                // Only run hero animations if hero section exists
+                if (heroSection) {
+                    const heroHeight = heroSection.offsetHeight;
+                    
+                    // Calculate scroll progress (0 to 1) for the first 30% of viewport scroll
+                    const scrollProgress = Math.min(scrollY / (window.innerHeight * 0.3), 1);
+                    
+                    // Background scale: 1.0 → 1.27
+                    const bgScale = 1 + (scrollProgress * 0.27);
+                    if (heroBackground) {
+                        heroBackground.style.transform = `scale(${bgScale})`;
+                    }
+                    
+                    // Heading scale: 1.0 → 0.89 (inverse)
+                    const headingScale = 1 - (scrollProgress * 0.11);
+                    if (heroHeading) {
+                        heroHeading.style.transform = `scale(${headingScale})`;
+                    }
+                    
+                    // Label fade out
+                    if (heroLabel) {
+                        const labelOpacity = 1 - scrollProgress;
+                        heroLabel.style.opacity = labelOpacity;
+                    }
                 }
                 
                 ticking = false;
@@ -70,10 +84,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     // Add subtle shadow between stacked cards
                     if (progress > 0 && progress < 1) {
-                        const shadowIntensity = Math.min(progress * 20, 20);
-                        card.style.boxShadow = `0 -4px ${shadowIntensity}px rgba(0, 0, 0, 0.1)`;
+                        const shadowIntensity = Math.min(progress * 30, 30);
+                        card.style.boxShadow = `0 -8px ${shadowIntensity}px rgba(0, 0, 0, 0.15)`;
                     } else {
-                        card.style.boxShadow = 'none';
+                        card.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.15)';
                     }
                     
                     // Optional: slight scale effect when card is active
@@ -105,8 +119,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelector('.nav-links');
     
     if (navToggle) {
-        navToggle.addEventListener('click', function() {
+        navToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
             navLinks.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (navLinks.classList.contains('active') && 
+                !navLinks.contains(e.target) && 
+                !navToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
         });
     }
     
@@ -124,12 +155,35 @@ document.addEventListener('DOMContentLoaded', function() {
             const target = document.querySelector(href);
             
             if (target) {
-                const offsetTop = target.offsetTop;
+                const navbarHeight = navbar ? navbar.offsetHeight : 0;
+                const offsetTop = target.offsetTop - navbarHeight;
                 window.scrollTo({
                     top: offsetTop,
                     behavior: 'smooth'
                 });
             }
         });
+    });
+    
+    
+    // ===================================
+    // Fade on Scroll Animation
+    // ===================================
+    
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.fade-on-scroll').forEach(el => {
+        observer.observe(el);
     });
 });
