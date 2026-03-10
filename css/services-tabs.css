@@ -1,0 +1,290 @@
+/* ===================================
+   Services Tabs Navigation
+   =================================== */
+
+.tabs-section {
+    padding: 4rem 0 6rem;
+    background: var(--color-bg);
+}
+
+.tabs-nav {
+    position: relative;
+    display: inline-flex;
+    gap: 0;
+    background: var(--color-white);
+    border-radius: 50px;
+    padding: 6px;
+    margin: 0 auto 4rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    width: auto;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tab-button {
+    position: relative;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-grey);
+    background: transparent;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+    white-space: nowrap;
+}
+
+.tab-button:hover {
+    color: var(--color-black);
+}
+
+.tab-button.active {
+    color: var(--color-white);
+}
+
+.tab-indicator {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    height: calc(100% - 12px);
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+    animation: fadeInTab 0.5s ease-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeInTab {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* FAQ Grid */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.faq-item-modern {
+    background: var(--color-white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.faq-item-modern:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.faq-item-modern h4 {
+    margin-bottom: 1rem;
+    color: var(--color-black);
+}
+
+.faq-item-modern p {
+    color: var(--color-grey);
+    margin: 0;
+    line-height: 1.7;
+}
+
+/* Positions Grid */
+.positions-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.position-card-modern {
+    background: var(--color-white);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.position-card-modern:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.position-header-modern {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    gap: 2rem;
+}
+
+.position-header-modern h4 {
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+}
+
+.position-tags {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+.position-tags span {
+    padding: 0.375rem 0.875rem;
+    background: var(--color-bg);
+    border-radius: 6px;
+    font-size: 0.8125rem;
+    color: var(--color-grey);
+    font-weight: 500;
+}
+
+.position-card-modern p {
+    color: var(--color-grey);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Glowing CTA Button */
+.btn-glow {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 2rem;
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    color: var(--color-white);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    
+    --glow-x: 50%;
+    --glow-y: 50%;
+}
+
+.btn-glow::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    transition: width 0.6s ease, height 0.6s ease;
+    pointer-events: none;
+}
+
+.btn-glow:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-glow::after {
+    content: '→';
+    font-size: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-glow:hover::after {
+    transform: translateX(4px);
+}
+
+.btn-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.btn-glow:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tabs-nav {
+        max-width: 90%;
+    }
+    
+    .tab-button {
+        padding: 0.875rem 2rem;
+        font-size: 0.9375rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .tabs-nav {
+        flex-direction: column;
+        width: 100%;
+        max-width: none;
+        border-radius: 16px;
+        padding: 8px;
+    }
+    
+    .tab-button {
+        width: 100%;
+        text-align: left;
+        padding: 1rem 1.5rem;
+    }
+    
+    .tab-indicator {
+        width: calc(100% - 16px);
+        height: auto;
+        top: auto;
+        left: 8px;
+        transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                    height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .position-header-modern {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .btn-glow {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .tab-button {
+        font-size: 0.875rem;
+        padding: 0.875rem 1.25rem;
+    }
+    
+    .position-card-modern {
+        padding: 1.5rem;
+    }
+}

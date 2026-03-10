@@ -6,8 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroSection = document.getElementById('immersiveHero');
     const heroBackground = document.getElementById('heroBackground');
     const heroHeading = document.getElementById('heroHeading');
-    const heroLabel = document.querySelector('.hero-label');
-    const navbar = document.querySelector('.navbar-immersive');
+    const heroHeadingText = heroHeading?.querySelector('h1');
     
     let ticking = false;
     
@@ -16,40 +15,27 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!ticking) {
             window.requestAnimationFrame(function() {
                 const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                const heroHeight = heroSection?.offsetHeight || window.innerHeight;
                 
-                // Navbar background on scroll
-                if (navbar && !navbar.classList.contains('scrolled')) {
-                    if (scrollY > 50) {
-                        navbar.classList.add('scrolled');
-                    }
-                } else if (navbar && scrollY <= 50) {
-                    navbar.classList.remove('scrolled');
+                // Calculate scroll progress (0 to 1) through the hero section
+                const scrollProgress = Math.min(scrollY / heroHeight, 1);
+                
+                // Background scale: 1.0 → 1.27
+                const bgScale = 1 + (scrollProgress * 0.27);
+                if (heroBackground) {
+                    heroBackground.style.transform = `scale(${bgScale})`;
                 }
                 
-                // Only run hero animations if hero section exists
-                if (heroSection) {
-                    const heroHeight = heroSection.offsetHeight;
-                    
-                    // Calculate scroll progress (0 to 1) for the first 30% of viewport scroll
-                    const scrollProgress = Math.min(scrollY / (window.innerHeight * 0.3), 1);
-                    
-                    // Background scale: 1.0 → 1.27
-                    const bgScale = 1 + (scrollProgress * 0.27);
-                    if (heroBackground) {
-                        heroBackground.style.transform = `scale(${bgScale})`;
-                    }
-                    
-                    // Heading scale: 1.0 → 0.89 (inverse)
-                    const headingScale = 1 - (scrollProgress * 0.11);
-                    if (heroHeading) {
-                        heroHeading.style.transform = `scale(${headingScale})`;
-                    }
-                    
-                    // Label fade out
-                    if (heroLabel) {
-                        const labelOpacity = 1 - scrollProgress;
-                        heroLabel.style.opacity = labelOpacity;
-                    }
+                // Heading scale: 1.0 → 0.89 (inverse)
+                const headingScale = 1 - (scrollProgress * 0.11);
+                if (heroHeading) {
+                    heroHeading.style.transform = `scale(${headingScale})`;
+                }
+                
+                // Font weight animation: 300 → 800
+                if (heroHeadingText) {
+                    const fontWeight = 300 + (scrollProgress * 500);
+                    heroHeadingText.style.fontWeight = fontWeight.toString();
                 }
                 
                 ticking = false;
@@ -60,14 +46,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Throttled scroll listener
-    window.addEventListener('scroll', updateHeroOnScroll, { passive: true });
-    
-    // Initial call
-    updateHeroOnScroll();
+    if (heroSection) {
+        window.addEventListener('scroll', updateHeroOnScroll, { passive: true });
+        updateHeroOnScroll(); // Initial call
+    }
     
     
     // ===================================
-    // Card Stacking Scroll Effects
+    // Card Stacking with Glow Effects
     // ===================================
     
     const stackingCards = document.querySelectorAll('.stacking-card');
@@ -84,18 +70,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     // Add subtle shadow between stacked cards
                     if (progress > 0 && progress < 1) {
-                        const shadowIntensity = Math.min(progress * 30, 30);
-                        card.style.boxShadow = `0 -8px ${shadowIntensity}px rgba(0, 0, 0, 0.15)`;
+                        const shadowIntensity = Math.min(progress * 15, 15);
+                        card.style.boxShadow = `0 -3px ${shadowIntensity}px rgba(0, 0, 0, 0.1)`;
                     } else {
-                        card.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.15)';
+                        card.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.15)';
                     }
                     
-                    // Optional: slight scale effect when card is active
+                    // Slight scale effect when card is active
                     if (progress >= 0 && progress <= 1) {
-                        const scale = 1 - (progress * 0.02);
+                        const scale = 1 - (progress * 0.015);
                         card.style.transform = `scale(${scale})`;
                     } else if (progress > 1) {
-                        card.style.transform = 'scale(0.98)';
+                        card.style.transform = 'scale(0.985)';
                     } else {
                         card.style.transform = 'scale(1)';
                     }
@@ -112,32 +98,105 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
     // ===================================
+    // Card Glow Effect on Mouse Move
+    // ===================================
+    
+    stackingCards.forEach(card => {
+        card.addEventListener('mousemove', function(e) {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Calculate percentage position
+            const percentX = (x / rect.width) * 100;
+            const percentY = (y / rect.height) * 100;
+            
+            // Calculate distance from center (0 at center, 1 at edge)
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const dx = x - centerX;
+            const dy = y - centerY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const maxDistance = Math.sqrt(centerX * centerX + centerY * centerY);
+            const normalizedDistance = Math.min(distance / maxDistance, 1);
+            
+            // Calculate angle for glow direction
+            const angle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+            
+            // Set CSS variables
+            card.style.setProperty('--pointer-x', `${percentX}%`);
+            card.style.setProperty('--pointer-y', `${percentY}%`);
+            card.style.setProperty('--pointer-deg', `${angle}deg`);
+            card.style.setProperty('--pointer-d', normalizedDistance.toFixed(3));
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            // Reset glow
+            card.style.setProperty('--pointer-d', '0');
+        });
+    });
+    
+    
+    // ===================================
+    // Navigation Active State
+    // ===================================
+    
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const currentPath = window.location.pathname;
+    
+    navLinks.forEach(link => {
+        const linkPath = new URL(link.href).pathname;
+        if (currentPath === linkPath || 
+            (currentPath === '/' && linkPath.includes('index.html')) ||
+            (currentPath.includes('index.html') && linkPath.includes('index.html'))) {
+            link.classList.add('active');
+        }
+    });
+    
+    
+    // ===================================
+    // Navbar Scroll Effect
+    // ===================================
+    
+    const navbar = document.querySelector('.navbar-immersive');
+    
+    function updateNavbar() {
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollY > 50) {
+            navbar?.classList.add('scrolled');
+        } else {
+            navbar?.classList.remove('scrolled');
+        }
+    }
+    
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+    updateNavbar(); // Initial call
+    
+    
+    // ===================================
     // Mobile Navigation Toggle
     // ===================================
     
     const navToggle = document.getElementById('navToggleImmersive');
-    const navLinks = document.querySelector('.nav-links');
+    const navLinksContainer = document.querySelector('.nav-links');
     
-    if (navToggle) {
-        navToggle.addEventListener('click', function(e) {
-            e.stopPropagation();
-            navLinks.classList.toggle('active');
+    if (navToggle && navLinksContainer) {
+        navToggle.addEventListener('click', function() {
+            navLinksContainer.classList.toggle('active');
+        });
+        
+        // Close menu when clicking a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinksContainer.classList.remove('active');
+            });
         });
         
         // Close menu when clicking outside
         document.addEventListener('click', function(e) {
-            if (navLinks.classList.contains('active') && 
-                !navLinks.contains(e.target) && 
-                !navToggle.contains(e.target)) {
-                navLinks.classList.remove('active');
+            if (!navToggle.contains(e.target) && !navLinksContainer.contains(e.target)) {
+                navLinksContainer.classList.remove('active');
             }
-        });
-        
-        // Close menu when clicking a link
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
         });
     }
     
@@ -155,35 +214,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const target = document.querySelector(href);
             
             if (target) {
-                const navbarHeight = navbar ? navbar.offsetHeight : 0;
-                const offsetTop = target.offsetTop - navbarHeight;
+                const offsetTop = target.offsetTop;
                 window.scrollTo({
                     top: offsetTop,
                     behavior: 'smooth'
                 });
             }
         });
-    });
-    
-    
-    // ===================================
-    // Fade on Scroll Animation
-    // ===================================
-    
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-    
-    document.querySelectorAll('.fade-on-scroll').forEach(el => {
-        observer.observe(el);
     });
 });
