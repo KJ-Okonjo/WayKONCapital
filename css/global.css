@@ -1,6 +1,6 @@
 /* ===================================
    WayKON Capital - Global Styles
-   Modern Light Theme
+   Modern Light Theme with Mobile Optimization
    =================================== */
 
 /* === CSS Variables === */
@@ -48,6 +48,7 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
 img {
@@ -430,9 +431,13 @@ p {
     transform: translateY(0);
 }
 
-/* === Responsive Design === */
+/* === Mobile Optimizations === */
 @media (max-width: 1024px) {
-    h1 { font-size: 3rem; }
+    html {
+        font-size: 15px;
+    }
+
+    h1 { font-size: 2.75rem; }
     h2 { font-size: 2.25rem; }
     h3 { font-size: 1.75rem; }
     
@@ -445,19 +450,38 @@ p {
     .grid-3,
     .grid-4 {
         grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
     }
     
     .footer-content-modern {
         grid-template-columns: repeat(2, 1fr);
         gap: 3rem;
     }
+
+    .section-modern,
+    .section-modern-alt {
+        padding: 6rem 0;
+    }
+
+    .page-hero-modern {
+        padding: 9rem 0 4.5rem;
+    }
 }
 
 @media (max-width: 768px) {
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 2rem; }
+    html {
+        font-size: 14px;
+    }
+
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.875rem; }
     h3 { font-size: 1.5rem; }
+    h4 { font-size: 1.25rem; }
     
+    .lead {
+        font-size: 1.125rem;
+    }
+
     .container,
     .cta-container,
     .footer-container {
@@ -466,15 +490,23 @@ p {
     
     .section-modern,
     .section-modern-alt {
-        padding: 5rem 0;
+        padding: 4.5rem 0;
+    }
+
+    .section-header-modern {
+        margin-bottom: 3.5rem;
     }
     
     .page-hero-modern {
-        padding: 8rem 0 4rem;
+        padding: 7rem 0 3.5rem;
     }
     
     .page-hero-modern h1 {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
+    }
+
+    .page-hero-modern p {
+        font-size: 1.0625rem;
     }
     
     .cta-section-modern {
@@ -484,9 +516,19 @@ p {
     .cta-content-modern h2 {
         font-size: 2rem;
     }
+
+    .cta-content-modern p {
+        font-size: 1.0625rem;
+    }
     
     .cta-buttons-modern {
         flex-direction: column;
+        gap: 1rem;
+    }
+
+    .btn-modern {
+        padding: 0.875rem 2rem;
+        font-size: 0.9375rem;
     }
     
     .grid-2,
@@ -500,18 +542,121 @@ p {
         grid-template-columns: 1fr;
         gap: 2.5rem;
     }
+
+    .footer-modern {
+        padding: 4rem 0 1.5rem;
+    }
+
+    .card-modern {
+        padding: 2rem;
+    }
+
+    .form-group-modern input,
+    .form-group-modern select,
+    .form-group-modern textarea {
+        padding: 0.875rem 1rem;
+        font-size: 0.9375rem;
+    }
 }
 
 @media (max-width: 480px) {
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.75rem; }
+    html {
+        font-size: 13px;
+    }
+
+    h1 { font-size: 1.875rem; }
+    h2 { font-size: 1.625rem; }
+    h3 { font-size: 1.375rem; }
+    
+    .lead {
+        font-size: 1rem;
+    }
+
+    .container,
+    .cta-container,
+    .footer-container {
+        padding: 0 1.25rem;
+    }
+
+    .section-modern,
+    .section-modern-alt {
+        padding: 3.5rem 0;
+    }
+
+    .section-header-modern {
+        margin-bottom: 2.5rem;
+    }
+
+    .section-header-modern p {
+        font-size: 1rem;
+    }
+    
+    .page-hero-modern {
+        padding: 6rem 0 3rem;
+    }
     
     .page-hero-modern h1 {
-        font-size: 2rem;
+        font-size: 1.875rem;
+    }
+
+    .page-hero-modern p {
+        font-size: 1rem;
+    }
+
+    .cta-section-modern {
+        padding: 4rem 0;
+    }
+
+    .cta-content-modern h2 {
+        font-size: 1.75rem;
+    }
+
+    .cta-content-modern p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
     }
     
     .btn-modern {
-        padding: 0.875rem 2rem;
-        font-size: 0.9375rem;
+        padding: 0.75rem 1.75rem;
+        font-size: 0.875rem;
+    }
+
+    .card-modern {
+        padding: 1.5rem;
+    }
+
+    .footer-modern {
+        padding: 3rem 0 1.25rem;
+    }
+
+    .footer-section-modern h3 {
+        font-size: 1.25rem;
+    }
+
+    .footer-section-modern h4,
+    .footer-section-modern p,
+    .footer-section-modern ul a {
+        font-size: 0.875rem;
+    }
+
+    .grid-2 {
+        gap: 1.5rem;
+    }
+}
+
+/* === Touch Device Optimizations === */
+@media (hover: none) and (pointer: coarse) {
+    .btn-modern,
+    .card-modern,
+    .nav-links a {
+        transition: all 0.2s ease;
+    }
+
+    .btn-modern:active {
+        transform: scale(0.97);
+    }
+
+    .card-modern:active {
+        transform: translateY(-4px);
     }
 }

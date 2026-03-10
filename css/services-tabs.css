@@ -9,7 +9,7 @@
 
 .tabs-nav {
     position: relative;
-    display: inline-flex;
+    display: flex;
     gap: 0;
     background: var(--color-white);
     border-radius: 50px;
@@ -17,9 +17,7 @@
     margin: 0 auto 4rem;
     box-shadow: var(--shadow-sm);
     border: 1px solid rgba(0, 0, 0, 0.05);
-    display: flex;
-    justify-content: center;
-    width: auto;
+    width: fit-content;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -53,6 +51,7 @@
     top: 6px;
     left: 6px;
     height: calc(100% - 12px);
+    width: 0;
     background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
     border-radius: 50px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -244,27 +243,30 @@
 }
 
 @media (max-width: 768px) {
+    .tabs-section {
+        padding: 3rem 0 4rem;
+    }
+    
     .tabs-nav {
         flex-direction: column;
         width: 100%;
         max-width: none;
         border-radius: 16px;
         padding: 8px;
+        margin-bottom: 3rem;
     }
     
     .tab-button {
         width: 100%;
         text-align: left;
-        padding: 1rem 1.5rem;
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9375rem;
     }
     
     .tab-indicator {
-        width: calc(100% - 16px);
+        width: calc(100% - 16px) !important;
         height: auto;
-        top: auto;
-        left: 8px;
-        transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                    height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        left: 8px !important;
     }
     
     .position-header-modern {
@@ -275,16 +277,42 @@
     .btn-glow {
         width: 100%;
         justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .tab-button {
+        padding: 0.75rem 1.5rem;
         font-size: 0.875rem;
-        padding: 0.875rem 1.25rem;
     }
     
     .position-card-modern {
         padding: 1.5rem;
+    }
+    
+    .position-header-modern h4 {
+        font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tabs-section {
+        padding: 2rem 0 3rem;
+    }
+    
+    .tab-button {
+        font-size: 0.875rem;
+        padding: 0.75rem 1.25rem;
+    }
+    
+    .position-card-modern {
+        padding: 1.25rem;
+    }
+    
+    .faq-item-modern {
+        padding: 1.5rem;
+    }
+    
+    .faq-item-modern h4 {
+        font-size: 1rem;
+    }
+    
+    .faq-item-modern p {
+        font-size: 0.875rem;
     }
 }
