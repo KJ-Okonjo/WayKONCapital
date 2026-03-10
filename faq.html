@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Frequently asked questions about WayKON Capital's investment approach, portfolio, and services in the creative industries.">
+    <meta name="description" content="WayKON Capital FAQ - Frequently asked questions about our investment approach, portfolio, and services.">
     <title>FAQ - WayKON Capital</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,6 +11,95 @@
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/immersive-hero.css">
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.1/dist/umd/lucide.min.js"></script>
+    <style>
+        .faq-item {
+            background: var(--color-white);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .faq-item:hover {
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            text-align: left;
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--color-black);
+            background: transparent;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            background-color: var(--color-bg);
+        }
+        
+        .faq-icon {
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+        }
+        
+        .faq-answer p {
+            padding: 0 2rem 1.5rem;
+            color: var(--color-grey);
+            line-height: 1.7;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--color-white);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-black);
+        }
+        
+        .stat-item p {
+            color: var(--color-grey);
+            margin: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .stat-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -35,39 +124,41 @@
         <p>Learn more about WayKON Capital and get answers to common questions</p>
     </section>
 
-    <!-- About WayKON Capital Section -->
+    <!-- About Section -->
     <section class="section-modern">
         <div class="container">
             <div class="section-header-modern">
                 <h2>About WayKON Capital</h2>
                 <div class="divider-modern"></div>
             </div>
-
-            <div class="grid-2">
+            
+            <div class="grid-2" style="align-items: center; margin-bottom: 4rem;">
                 <div>
                     <p class="lead">WayKON Capital is an early-stage holding company focused on the creative industries. We partner with visionary founders and creative teams to build enduring businesses.</p>
-                    <p>From fashion brands redefining style to digital platforms amplifying innovation—we invest in the creators and operators driving cultural and commercial change, with a long-term vision for growth across the creative sector.</p>
-                    <p>Based between London and Lagos, our approach combines creative expertise with strategic support to unlock growth and long-term value.</p>
+                    <p style="color: var(--color-grey); line-height: 1.7;">From fashion brands redefining style to digital platforms amplifying innovation—we invest in the creators and operators driving cultural and commercial change, with a long-term vision for growth across the creative sector.</p>
+                    <p style="color: var(--color-grey); line-height: 1.7;">Based between London and Lagos, our approach combines creative expertise with strategic support to unlock growth and long-term value.</p>
                 </div>
                 <div>
-                    <div class="grid-2" style="gap: 2rem;">
-                        <div class="card-modern" style="text-align: center;">
-                            <h3 style="font-size: 3rem; margin-bottom: 0.5rem; color: var(--color-black);">3</h3>
-                            <p style="color: var(--color-grey); margin: 0;">Portfolio Companies</p>
-                        </div>
-                        <div class="card-modern" style="text-align: center;">
-                            <h3 style="font-size: 3rem; margin-bottom: 0.5rem; color: var(--color-black);">£4k</h3>
-                            <p style="color: var(--color-grey); margin: 0;">Assets Managed</p>
-                        </div>
-                        <div class="card-modern" style="text-align: center;">
-                            <h3 style="font-size: 3rem; margin-bottom: 0.5rem; color: var(--color-black);">4</h3>
-                            <p style="color: var(--color-grey); margin: 0;">Years Experience</p>
-                        </div>
-                        <div class="card-modern" style="text-align: center;">
-                            <h3 style="font-size: 3rem; margin-bottom: 0.5rem; color: var(--color-black);">2</h3>
-                            <p style="color: var(--color-grey); margin: 0;">Countries</p>
-                        </div>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop&q=80" alt="About WayKON Capital" style="width: 100%; height: 400px; object-fit: cover; border-radius: 16px; box-shadow: var(--shadow-md);">
+                </div>
+            </div>
+
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <h3>3</h3>
+                    <p>Portfolio Companies</p>
+                </div>
+                <div class="stat-item">
+                    <h3>£4K</h3>
+                    <p>Assets Managed</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat-item">
+                    <h3>2</h3>
+                    <p>Countries</p>
                 </div>
             </div>
         </div>
@@ -83,107 +174,101 @@
 
             <div style="max-width: 900px; margin: 0 auto;">
                 <!-- General Questions -->
-                <div style="margin-bottom: 4rem;">
-                    <h3 style="font-size: 2rem; margin-bottom: 2rem; color: var(--color-black);">General Questions</h3>
-                    
-                    <div class="faq-item-modern" style="background: var(--color-white); border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
-                        <button class="faq-question-modern" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; text-align: left; font-size: 1.125rem; font-weight: 500; color: var(--color-black); background: transparent; border: none; cursor: pointer;">
-                            What is WayKON Capital?
-                            <span class="faq-icon-modern" style="transition: transform 0.3s ease;">▼</span>
-                        </button>
-                        <div class="faq-answer-modern" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                            <p style="padding: 0 2rem 1.5rem; color: var(--color-grey);">WayKON Capital is an early-stage holding company focused on the creative industries. Based between London and Lagos, we invest in and build businesses across fashion, digital infrastructure, and brand development, with a long-term vision for growth across the creative sector.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item-modern" style="background: var(--color-white); border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
-                        <button class="faq-question-modern" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; text-align: left; font-size: 1.125rem; font-weight: 500; color: var(--color-black); background: transparent; border: none; cursor: pointer;">
-                            What makes WayKON Capital different from other investors?
-                            <span class="faq-icon-modern" style="transition: transform 0.3s ease;">▼</span>
-                        </button>
-                        <div class="faq-answer-modern" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                            <p style="padding: 0 2rem 1.5rem; color: var(--color-grey);">We specialize in creative industries and take a founder-friendly, long-term approach to building businesses. We provide hands-on operational support and understand the unique balance between artistic vision and commercial success.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item-modern" style="background: var(--color-white); border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
-                        <button class="faq-question-modern" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; text-align: left; font-size: 1.125rem; font-weight: 500; color: var(--color-black); background: transparent; border: none; cursor: pointer;">
-                            What stage of companies do you invest in?
-                            <span class="faq-icon-modern" style="transition: transform 0.3s ease;">▼</span>
-                        </button>
-                        <div class="faq-answer-modern" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                            <p style="padding: 0 2rem 1.5rem; color: var(--color-grey);">We focus on early-stage companies in the creative industries, typically with founding teams and clear creative vision. We look for businesses that align with our focus areas in fashion, digital infrastructure, and brand development.</p>
-                        </div>
+                <h3 style="margin-bottom: 2rem; color: var(--color-black);">General</h3>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What is WayKON Capital?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>WayKON Capital is an early-stage holding company focused on investing in, acquiring, and building businesses across creative industries including fashion, music, art, advertising, and media. We provide strategic capital and operational support to help creative businesses scale.</p>
                     </div>
                 </div>
 
-                <!-- Investment Criteria -->
-                <div style="margin-bottom: 4rem;">
-                    <h3 style="font-size: 2rem; margin-bottom: 2rem; color: var(--color-black);">Investment Criteria</h3>
-                    
-                    <div class="faq-item-modern" style="background: var(--color-white); border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
-                        <button class="faq-question-modern" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; text-align: left; font-size: 1.125rem; font-weight: 500; color: var(--color-black); background: transparent; border: none; cursor: pointer;">
-                            What industries do you invest in?
-                            <span class="faq-icon-modern" style="transition: transform 0.3s ease;">▼</span>
-                        </button>
-                        <div class="faq-answer-modern" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                            <p style="padding: 0 2rem 1.5rem; color: var(--color-grey);">We focus on creative industries including fashion, digital infrastructure for brands, brand development, and related cultural sectors. We're particularly interested in businesses at the intersection of creativity and commerce.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item-modern" style="background: var(--color-white); border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
-                        <button class="faq-question-modern" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; text-align: left; font-size: 1.125rem; font-weight: 500; color: var(--color-black); background: transparent; border: none; cursor: pointer;">
-                            What do you look for in potential investments?
-                            <span class="faq-icon-modern" style="transition: transform 0.3s ease;">▼</span>
-                        </button>
-                        <div class="faq-answer-modern" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                            <p style="padding: 0 2rem 1.5rem; color: var(--color-grey);">We seek exceptional founders with clear vision, cultural relevance, scalable business models, and strong growth potential. We value authentic storytelling, operational excellence, and businesses that can make meaningful cultural impact.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item-modern" style="background: var(--color-white); border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
-                        <button class="faq-question-modern" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; text-align: left; font-size: 1.125rem; font-weight: 500; color: var(--color-black); background: transparent; border: none; cursor: pointer;">
-                            How much do you typically invest?
-                            <span class="faq-icon-modern" style="transition: transform 0.3s ease;">▼</span>
-                        </button>
-                        <div class="faq-answer-modern" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                            <p style="padding: 0 2rem 1.5rem; color: var(--color-grey);">Investment amounts vary based on the company's stage, needs, and growth potential. We take a flexible approach and structure deals that align with founder goals and company trajectory.</p>
-                        </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What industries do you focus on?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We focus on creative industries including fashion, digital infrastructure, music, art, advertising, media, and brand development. Our portfolio spans companies that blend creativity with commerce.</p>
                     </div>
                 </div>
 
-                <!-- Working with WayKON -->
-                <div style="margin-bottom: 4rem;">
-                    <h3 style="font-size: 2rem; margin-bottom: 2rem; color: var(--color-black);">Working with WayKON</h3>
-                    
-                    <div class="faq-item-modern" style="background: var(--color-white); border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
-                        <button class="faq-question-modern" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; text-align: left; font-size: 1.125rem; font-weight: 500; color: var(--color-black); background: transparent; border: none; cursor: pointer;">
-                            How involved are you with portfolio companies?
-                            <span class="faq-icon-modern" style="transition: transform 0.3s ease;">▼</span>
-                        </button>
-                        <div class="faq-answer-modern" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                            <p style="padding: 0 2rem 1.5rem; color: var(--color-grey);">We're hands-on partners. We provide strategic guidance, operational support, network access, and expertise while respecting founder autonomy. Our involvement is tailored to each company's specific needs.</p>
-                        </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Where are you based?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>WayKON Capital operates between London, United Kingdom, and Lagos, Nigeria, allowing us to bridge European and African creative markets.</p>
                     </div>
+                </div>
 
-                    <div class="faq-item-modern" style="background: var(--color-white); border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
-                        <button class="faq-question-modern" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; text-align: left; font-size: 1.125rem; font-weight: 500; color: var(--color-black); background: transparent; border: none; cursor: pointer;">
-                            What services do you provide to portfolio companies?
-                            <span class="faq-icon-modern" style="transition: transform 0.3s ease;">▼</span>
-                        </button>
-                        <div class="faq-answer-modern" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                            <p style="padding: 0 2rem 1.5rem; color: var(--color-grey);">We provide strategic advisory, operational support, growth strategy, financial management guidance, talent acquisition support, and access to our network of industry connections and resources.</p>
-                        </div>
+                <!-- Investment Questions -->
+                <h3 style="margin: 3rem 0 2rem; color: var(--color-black);">Investment</h3>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What stage companies do you invest in?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We primarily focus on early-stage companies with proven product-market fit and clear growth potential. We also acquire and build businesses from the ground up in strategic sectors.</p>
                     </div>
+                </div>
 
-                    <div class="faq-item-modern" style="background: var(--color-white); border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
-                        <button class="faq-question-modern" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; text-align: left; font-size: 1.125rem; font-weight: 500; color: var(--color-black); background: transparent; border: none; cursor: pointer;">
-                            How long is your investment horizon?
-                            <span class="faq-icon-modern" style="transition: transform 0.3s ease;">▼</span>
-                        </button>
-                        <div class="faq-answer-modern" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                            <p style="padding: 0 2rem 1.5rem; color: var(--color-grey);">We're long-term partners focused on building sustainable businesses. We're not looking for quick exits—we invest with a multi-year perspective aligned with each company's growth trajectory.</p>
-                        </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What is your investment process?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our process begins with an initial conversation to understand your business, market, and vision. We then conduct due diligence, develop a strategic plan, and structure a partnership that aligns with your long-term goals. The entire process typically takes 4-8 weeks.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do you take majority or minority stakes?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We're flexible depending on the situation. We can take minority stakes in growing businesses or acquire majority/full ownership when building or turning around companies. Our goal is to structure partnerships that work for all stakeholders.</p>
+                    </div>
+                </div>
+
+                <!-- Partnership Questions -->
+                <h3 style="margin: 3rem 0 2rem; color: var(--color-black);">Partnership</h3>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How do you support portfolio companies?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We provide comprehensive support including strategic advisory, operational guidance, financial planning, market expansion, team building, and access to our network of partners and resources.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can I work with you without investment?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we offer advisory and consulting services to creative businesses. Contact us to discuss how we can support your growth without equity investment.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How do I get in touch?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You can reach us via our contact form or email us directly at info@waykoncapital.com. We respond to all inquiries within 24-48 hours.</p>
                     </div>
                 </div>
             </div>
@@ -195,9 +280,10 @@
         <div class="cta-container">
             <div class="cta-content-modern">
                 <h2>Still Have Questions?</h2>
-                <p>We're here to help. Reach out and let's start a conversation.</p>
+                <p>Get in touch and we'll be happy to provide more information</p>
                 <div class="cta-buttons-modern">
-                    <a href="contact.html" class="btn-modern btn-modern-primary">Get in Touch</a>
+                    <a href="contact.html" class="btn-modern btn-modern-primary">Contact Us</a>
+                    <a href="services.html" class="btn-modern btn-modern-secondary">Our Services</a>
                 </div>
             </div>
         </div>
@@ -246,35 +332,21 @@
     <script src="js/immersive-hero.js"></script>
     <script>
         lucide.createIcons();
-
-        // FAQ accordion functionality
-        document.querySelectorAll('.faq-question-modern').forEach(button => {
-            button.addEventListener('click', () => {
-                const item = button.parentElement;
-                const answer = item.querySelector('.faq-answer-modern');
-                const icon = button.querySelector('.faq-icon-modern');
-                const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
-
-                // Close all other items
-                document.querySelectorAll('.faq-item-modern').forEach(otherItem => {
-                    if (otherItem !== item) {
-                        const otherAnswer = otherItem.querySelector('.faq-answer-modern');
-                        const otherIcon = otherItem.querySelector('.faq-icon-modern');
-                        otherAnswer.style.maxHeight = '0';
-                        otherIcon.style.transform = 'rotate(0deg)';
-                    }
-                });
-
-                // Toggle current item
-                if (isOpen) {
-                    answer.style.maxHeight = '0';
-                    icon.style.transform = 'rotate(0deg)';
-                } else {
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
-                    icon.style.transform = 'rotate(180deg)';
-                }
+        
+        function toggleFAQ(button) {
+            const item = button.parentElement;
+            const wasActive = item.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(faq => {
+                faq.classList.remove('active');
             });
-        });
+            
+            // Open clicked item if it wasn't active
+            if (!wasActive) {
+                item.classList.add('active');
+            }
+        }
     </script>
 </body>
 </html>

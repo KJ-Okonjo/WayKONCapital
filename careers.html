@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Join WayKON Capital - Careers in creative industries investment and operations.">
+    <meta name="description" content="Careers at WayKON Capital - Join our team building the future of creative industries.">
     <title>Careers - WayKON Capital</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,6 +11,66 @@
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/immersive-hero.css">
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.1/dist/umd/lucide.min.js"></script>
+    <style>
+        .position-card {
+            background: var(--color-white);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-smooth);
+        }
+        
+        .position-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .position-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .position-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .position-tag {
+            padding: 0.5rem 1rem;
+            background: var(--color-bg);
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-grey);
+        }
+        
+        .apply-btn {
+            padding: 0.875rem 2rem;
+            background: var(--color-dark-bg);
+            color: white;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+        
+        .apply-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        @media (max-width: 768px) {
+            .position-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -35,29 +95,28 @@
         <p>Help us build the future of creative industries</p>
     </section>
 
-    <!-- Intro Section -->
+    <!-- Careers Intro -->
     <section class="section-modern">
         <div class="container">
-            <div class="section-header-modern">
-                <h2>Why WayKON Capital</h2>
-                <div class="divider-modern"></div>
-                <p>We're building a team of passionate individuals who believe in the power of creativity and the importance of supporting visionary founders. If you thrive at the intersection of culture and commerce, we'd love to hear from you.</p>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2>Why WayKON Capital?</h2>
+                <p class="lead" style="margin-top: 1.5rem;">We're a team of builders, operators, and creative thinkers working at the intersection of culture and commerce. Join us to work on challenging problems, support innovative founders, and shape the future of creative industries.</p>
             </div>
 
-            <div class="grid-3">
+            <div class="grid-3" style="margin-top: 4rem;">
                 <div class="card-modern" style="text-align: center;">
                     <h3>Impact</h3>
-                    <p>Work directly with founders shaping the future of creative industries and make meaningful contributions to cultural innovation.</p>
+                    <p>Work directly with founders and creative leaders building the next generation of cultural businesses.</p>
                 </div>
 
                 <div class="card-modern" style="text-align: center;">
                     <h3>Growth</h3>
-                    <p>Develop your skills across investment, operations, and strategy in a collaborative, learning-focused environment.</p>
+                    <p>Learn from diverse industries, markets, and business models while developing your skills.</p>
                 </div>
 
                 <div class="card-modern" style="text-align: center;">
-                    <h3>Culture</h3>
-                    <p>Join a diverse team that values creativity, integrity, and excellence in everything we do.</p>
+                    <h3>Flexibility</h3>
+                    <p>Remote-first culture with offices in London and Lagos. Work where you're most productive.</p>
                 </div>
             </div>
         </div>
@@ -69,58 +128,74 @@
             <div class="section-header-modern">
                 <h2>Open Positions</h2>
                 <div class="divider-modern"></div>
+                <p>Explore opportunities to join our team</p>
             </div>
 
-            <div style="max-width: 900px; margin: 0 auto;">
-                <div class="card-modern" style="margin-bottom: 2rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <div class="position-card">
+                    <div class="position-header">
                         <div>
-                            <h3 style="margin-bottom: 0.5rem;">Investment Analyst</h3>
-                            <p style="color: var(--color-grey); margin: 0;">London · Full-time</p>
+                            <h3>Investment Associate</h3>
+                            <div class="position-meta" style="margin-top: 1rem;">
+                                <span class="position-tag">Full-time</span>
+                                <span class="position-tag">London / Remote</span>
+                                <span class="position-tag">Investment</span>
+                            </div>
                         </div>
-                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                            <span style="padding: 0.5rem 1rem; background: var(--color-bg); border-radius: 6px; font-size: 0.875rem; font-weight: 500;">Investment</span>
-                            <span style="padding: 0.5rem 1rem; background: var(--color-bg); border-radius: 6px; font-size: 0.875rem; font-weight: 500;">Finance</span>
-                        </div>
+                        <button class="apply-btn" onclick="window.location.href='contact.html'">Apply Now</button>
                     </div>
-                    <p>Support deal sourcing, due diligence, and portfolio company management. Ideal for someone with 1-3 years of experience in investment, consulting, or startup operations.</p>
-                    <a href="mailto:careers@waykoncapital.com?subject=Application: Investment Analyst" class="btn-modern btn-modern-secondary" style="margin-top: 1.5rem;">Apply Now</a>
+                    <p style="color: var(--color-grey); line-height: 1.7;">Support deal sourcing, due diligence, and portfolio management. Work closely with founders to identify opportunities and drive strategic initiatives across our creative industries portfolio.</p>
                 </div>
 
-                <div class="card-modern" style="margin-bottom: 2rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+                <div class="position-card">
+                    <div class="position-header">
                         <div>
-                            <h3 style="margin-bottom: 0.5rem;">Portfolio Operations Manager</h3>
-                            <p style="color: var(--color-grey); margin: 0;">Lagos · Full-time</p>
+                            <h3>Portfolio Operations Manager</h3>
+                            <div class="position-meta" style="margin-top: 1rem;">
+                                <span class="position-tag">Full-time</span>
+                                <span class="position-tag">Lagos / Remote</span>
+                                <span class="position-tag">Operations</span>
+                            </div>
                         </div>
-                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                            <span style="padding: 0.5rem 1rem; background: var(--color-bg); border-radius: 6px; font-size: 0.875rem; font-weight: 500;">Operations</span>
-                            <span style="padding: 0.5rem 1rem; background: var(--color-bg); border-radius: 6px; font-size: 0.875rem; font-weight: 500;">Strategy</span>
-                        </div>
+                        <button class="apply-btn" onclick="window.location.href='contact.html'">Apply Now</button>
                     </div>
-                    <p>Work hands-on with portfolio companies to optimize operations, implement growth strategies, and drive performance improvements. 3-5 years of operational experience required.</p>
-                    <a href="mailto:careers@waykoncapital.com?subject=Application: Portfolio Operations Manager" class="btn-modern btn-modern-secondary" style="margin-top: 1.5rem;">Apply Now</a>
+                    <p style="color: var(--color-grey); line-height: 1.7;">Provide operational support to portfolio companies. Help optimize processes, build teams, and drive execution across fashion, tech, and creative businesses.</p>
                 </div>
 
-                <div class="card-modern">
-                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+                <div class="position-card">
+                    <div class="position-header">
                         <div>
-                            <h3 style="margin-bottom: 0.5rem;">Marketing & Brand Manager</h3>
-                            <p style="color: var(--color-grey); margin: 0;">Remote · Full-time</p>
+                            <h3>Marketing & Brand Lead</h3>
+                            <div class="position-meta" style="margin-top: 1rem;">
+                                <span class="position-tag">Full-time</span>
+                                <span class="position-tag">London / Lagos</span>
+                                <span class="position-tag">Marketing</span>
+                            </div>
                         </div>
-                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                            <span style="padding: 0.5rem 1rem; background: var(--color-bg); border-radius: 6px; font-size: 0.875rem; font-weight: 500;">Marketing</span>
-                            <span style="padding: 0.5rem 1rem; background: var(--color-bg); border-radius: 6px; font-size: 0.875rem; font-weight: 500;">Brand</span>
-                        </div>
+                        <button class="apply-btn" onclick="window.location.href='contact.html'">Apply Now</button>
                     </div>
-                    <p>Lead brand strategy and marketing initiatives for WayKON Capital and support portfolio companies with brand development. 3-5 years of experience in creative industries preferred.</p>
-                    <a href="mailto:careers@waykoncapital.com?subject=Application: Marketing & Brand Manager" class="btn-modern btn-modern-secondary" style="margin-top: 1.5rem;">Apply Now</a>
+                    <p style="color: var(--color-grey); line-height: 1.7;">Build and execute marketing strategies for WayKON Capital and portfolio companies. Shape our brand narrative and drive growth across digital channels.</p>
+                </div>
+
+                <div class="position-card">
+                    <div class="position-header">
+                        <div>
+                            <h3>Finance Manager</h3>
+                            <div class="position-meta" style="margin-top: 1rem;">
+                                <span class="position-tag">Full-time</span>
+                                <span class="position-tag">Remote</span>
+                                <span class="position-tag">Finance</span>
+                            </div>
+                        </div>
+                        <button class="apply-btn" onclick="window.location.href='contact.html'">Apply Now</button>
+                    </div>
+                    <p style="color: var(--color-grey); line-height: 1.7;">Manage financial operations, reporting, and analysis for the holding company and portfolio. Support investment decisions with robust financial modeling.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Benefits Section -->
+    <!-- Benefits -->
     <section class="section-modern">
         <div class="container">
             <div class="section-header-modern">
@@ -129,40 +204,34 @@
             </div>
 
             <div class="grid-3">
-                <div style="text-align: center; padding: 2rem;">
-                    <i data-lucide="heart" style="width: 48px; height: 48px; margin: 0 auto 1.5rem; color: var(--color-black);"></i>
-                    <h4>Health & Wellness</h4>
-                    <p style="color: var(--color-grey); margin: 0;">Comprehensive health insurance and wellness programs</p>
+                <div style="text-align: center;">
+                    <h4>Competitive Compensation</h4>
+                    <p style="color: var(--color-grey);">Market-rate salaries with performance bonuses and equity options</p>
                 </div>
 
-                <div style="text-align: center; padding: 2rem;">
-                    <i data-lucide="home" style="width: 48px; height: 48px; margin: 0 auto 1.5rem; color: var(--color-black);"></i>
-                    <h4>Flexible Work</h4>
-                    <p style="color: var(--color-grey); margin: 0;">Remote-friendly culture with flexible hours</p>
+                <div style="text-align: center;">
+                    <h4>Healthcare</h4>
+                    <p style="color: var(--color-grey);">Comprehensive health insurance for you and your family</p>
                 </div>
 
-                <div style="text-align: center; padding: 2rem;">
-                    <i data-lucide="book-open" style="width: 48px; height: 48px; margin: 0 auto 1.5rem; color: var(--color-black);"></i>
+                <div style="text-align: center;">
                     <h4>Learning Budget</h4>
-                    <p style="color: var(--color-grey); margin: 0;">Annual budget for courses, conferences, and development</p>
+                    <p style="color: var(--color-grey);">Annual budget for courses, conferences, and professional development</p>
                 </div>
 
-                <div style="text-align: center; padding: 2rem;">
-                    <i data-lucide="plane" style="width: 48px; height: 48px; margin: 0 auto 1.5rem; color: var(--color-black);"></i>
-                    <h4>Generous PTO</h4>
-                    <p style="color: var(--color-grey); margin: 0;">Competitive vacation policy and holidays</p>
+                <div style="text-align: center;">
+                    <h4>Remote First</h4>
+                    <p style="color: var(--color-grey);">Work from anywhere with flexible hours and home office setup</p>
                 </div>
 
-                <div style="text-align: center; padding: 2rem;">
-                    <i data-lucide="trending-up" style="width: 48px; height: 48px; margin: 0 auto 1.5rem; color: var(--color-black);"></i>
-                    <h4>Equity Options</h4>
-                    <p style="color: var(--color-grey); margin: 0;">Share in our success through equity participation</p>
+                <div style="text-align: center;">
+                    <h4>Paid Time Off</h4>
+                    <p style="color: var(--color-grey);">Generous vacation policy plus public holidays</p>
                 </div>
 
-                <div style="text-align: center; padding: 2rem;">
-                    <i data-lucide="users" style="width: 48px; height: 48px; margin: 0 auto 1.5rem; color: var(--color-black);"></i>
+                <div style="text-align: center;">
                     <h4>Team Events</h4>
-                    <p style="color: var(--color-grey); margin: 0;">Regular team activities and cultural experiences</p>
+                    <p style="color: var(--color-grey);">Regular team gatherings, offsites, and cultural experiences</p>
                 </div>
             </div>
         </div>
@@ -172,10 +241,11 @@
     <section class="cta-section-modern">
         <div class="cta-container">
             <div class="cta-content-modern">
-                <h2>Don't See a Role That Fits?</h2>
-                <p>We're always looking for talented individuals. Send us your details and let's stay in touch.</p>
+                <h2>Don't See the Right Role?</h2>
+                <p>We're always looking for talented people. Send us your resume and let's talk.</p>
                 <div class="cta-buttons-modern">
-                    <a href="mailto:careers@waykoncapital.com?subject=General Application" class="btn-modern btn-modern-primary">Send General Application</a>
+                    <a href="contact.html" class="btn-modern btn-modern-primary">Get in Touch</a>
+                    <a href="index.html#portfolio" class="btn-modern btn-modern-secondary">View Portfolio</a>
                 </div>
             </div>
         </div>
