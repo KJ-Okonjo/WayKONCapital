@@ -1,5 +1,5 @@
 // ===================================
-// Immersive Hero Scroll Animations with Extreme Resistance
+// Immersive Hero Scroll Animations with Smooth Drag Resistance
 // ===================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -15,33 +15,23 @@ document.addEventListener('DOMContentLoaded', function() {
     let targetFontWeight = 200;
     const maxFontWeight = 900;
     const minFontWeight = 200;
-    const scrollResistanceFactor = 15; // Massive resistance
-    let lastScrollY = 0;
-    let resistedScrollY = 0;
     
-    // Extremely slow smoothing for heavy feel
-    const smoothingFactor = 0.08;
+    // Animation lags behind scroll for drag feel
+    const animationLag = 0.12; // Smooth lag for drag resistance feel
     
-    // Enhanced scroll handler with extreme resistance
+    // Enhanced scroll handler with animation lag (not scroll blocking)
     function updateHeroOnScroll() {
         if (!ticking) {
             window.requestAnimationFrame(function() {
-                const actualScrollY = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
                 const heroHeight = heroSection?.offsetHeight || window.innerHeight;
                 
-                // Apply extreme resistance to scroll
-                const scrollDelta = actualScrollY - lastScrollY;
-                resistedScrollY += scrollDelta / scrollResistanceFactor;
-                lastScrollY = actualScrollY;
+                // Calculate target scroll progress (0 to 1) through hero
+                // Only affects hero section
+                targetScrollProgress = Math.min(scrollY / (heroHeight * 0.5), 1);
                 
-                // Clamp resisted scroll
-                resistedScrollY = Math.max(0, Math.min(resistedScrollY, heroHeight));
-                
-                // Calculate target scroll progress (0 to 1)
-                targetScrollProgress = Math.min(resistedScrollY / (heroHeight * 0.4), 1);
-                
-                // Super slow interpolation
-                scrollProgress += (targetScrollProgress - scrollProgress) * smoothingFactor;
+                // Animation smoothly lags behind actual scroll for drag feel
+                scrollProgress += (targetScrollProgress - scrollProgress) * animationLag;
                 
                 // Background scale: 1.0 → 1.27
                 const bgScale = 1 + (scrollProgress * 0.27);
@@ -60,23 +50,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 const easedProgress = Math.pow(scrollProgress, 0.6);
                 targetFontWeight = minFontWeight + (easedProgress * fontWeightRange);
                 
-                // Very slow interpolation for font weight
-                currentFontWeight += (targetFontWeight - currentFontWeight) * smoothingFactor;
+                // Smooth interpolation for font weight with lag
+                currentFontWeight += (targetFontWeight - currentFontWeight) * animationLag;
                 
                 // Apply font weight
                 if (heroHeadingText) {
                     const roundedWeight = Math.round(currentFontWeight);
                     heroHeadingText.style.fontWeight = roundedWeight.toString();
                     heroHeadingText.style.fontVariationSettings = `'wght' ${roundedWeight}`;
-                }
-                
-                // Lock scroll if not fully emboldened
-                if (scrollProgress < 0.95 && currentFontWeight < maxFontWeight - 50) {
-                    // Slow down actual scroll
-                    const lockAmount = (1 - scrollProgress) * 0.7;
-                    if (scrollDelta > 0) {
-                        window.scrollTo(0, actualScrollY - (scrollDelta * lockAmount));
-                    }
                 }
                 
                 ticking = false;
@@ -86,9 +67,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Throttled scroll listener with extreme resistance
+    // Normal scroll listener - no blocking
     if (heroSection) {
-        window.addEventListener('scroll', updateHeroOnScroll, { passive: false });
+        window.addEventListener('scroll', updateHeroOnScroll, { passive: true });
         updateHeroOnScroll(); // Initial call
     }
     
@@ -112,8 +93,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         stat.textContent = hasPrefix ? '£0' : '0';
                         
                         setTimeout(() => {
-                            const duration = 800; // Much faster - 0.8 seconds
-                            const increment = numericValue / (duration / 8); // Update every 8ms
+                            const duration = 800; // Fast - 0.8 seconds
+                            const increment = numericValue / (duration / 8);
                             let current = 0;
                             
                             const counter = setInterval(() => {
@@ -125,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     const displayValue = Math.floor(current);
                                     stat.textContent = hasPrefix ? `£${displayValue}K` : displayValue;
                                 }
-                            }, 8); // Very fast updates
+                            }, 8);
                         }, 100);
                     }
                 });
