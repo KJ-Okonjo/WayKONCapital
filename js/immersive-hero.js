@@ -9,8 +9,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroHeadingText = heroHeading?.querySelector('h1');
     
     let ticking = false;
+    let targetScroll = 0;
+    let currentScroll = 0;
+    let isScrollingDown = true;
+    const maxFontWeight = 900;
+    const minFontWeight = 200;
+    const scrollResistance = 0.3; // Slower scroll feel
     
-    // Scroll handler for hero animations
+    // Enhanced scroll handler with resistance
     function updateHeroOnScroll() {
         if (!ticking) {
             window.requestAnimationFrame(function() {
@@ -18,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const heroHeight = heroSection?.offsetHeight || window.innerHeight;
                 
                 // Calculate scroll progress (0 to 1) through the hero section
-                const scrollProgress = Math.min(scrollY / heroHeight, 1);
+                let scrollProgress = Math.min(scrollY / (heroHeight * 0.7), 1); // Faster progression
                 
                 // Background scale: 1.0 → 1.27
                 const bgScale = 1 + (scrollProgress * 0.27);
@@ -32,10 +38,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     heroHeading.style.transform = `scale(${headingScale})`;
                 }
                 
-                // Font weight animation: 300 → 800
+                // Enhanced font weight animation: 200 → 900 with easing
                 if (heroHeadingText) {
-                    const fontWeight = 300 + (scrollProgress * 500);
-                    heroHeadingText.style.fontWeight = fontWeight.toString();
+                    // Apply easing for more dramatic effect at the end
+                    const easedProgress = scrollProgress < 0.5 
+                        ? 2 * scrollProgress * scrollProgress 
+                        : 1 - Math.pow(-2 * scrollProgress + 2, 2) / 2;
+                    
+                    const fontWeightRange = maxFontWeight - minFontWeight;
+                    const fontWeight = minFontWeight + (easedProgress * fontWeightRange);
+                    heroHeadingText.style.fontWeight = Math.round(fontWeight).toString();
                 }
                 
                 ticking = false;
@@ -53,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
     // ===================================
-    // Card Stacking with Glow Effects
+    // Card Stacking with Enhanced Glow
     // ===================================
     
     const stackingCards = document.querySelectorAll('.stacking-card');
@@ -98,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
     // ===================================
-    // Card Glow Effect on Mouse Move
+    // Enhanced Card Glow Effect on Mouse Move
     // ===================================
     
     stackingCards.forEach(card => {
@@ -111,47 +123,80 @@ document.addEventListener('DOMContentLoaded', function() {
             const percentX = (x / rect.width) * 100;
             const percentY = (y / rect.height) * 100;
             
-            // Calculate distance from center (0 at center, 1 at edge)
+            // Calculate distance from center (0 at center, 100 at edge)
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
             const dx = x - centerX;
             const dy = y - centerY;
             const distance = Math.sqrt(dx * dx + dy * dy);
             const maxDistance = Math.sqrt(centerX * centerX + centerY * centerY);
-            const normalizedDistance = Math.min(distance / maxDistance, 1);
+            const normalizedDistance = Math.min((distance / maxDistance) * 100, 100);
             
             // Calculate angle for glow direction
             const angle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
             
-            // Set CSS variables
+            // Set CSS variables for glowing edge effect
             card.style.setProperty('--pointer-x', `${percentX}%`);
             card.style.setProperty('--pointer-y', `${percentY}%`);
             card.style.setProperty('--pointer-deg', `${angle}deg`);
-            card.style.setProperty('--pointer-d', normalizedDistance.toFixed(3));
+            card.style.setProperty('--pointer-d', normalizedDistance.toFixed(1));
         });
         
         card.addEventListener('mouseleave', function() {
-            // Reset glow
+            // Smoothly fade out glow
             card.style.setProperty('--pointer-d', '0');
         });
     });
     
     
     // ===================================
-    // Navigation Active State
+    // Navigation Active State (Fixed)
     // ===================================
     
     const navLinks = document.querySelectorAll('.nav-links a');
     const currentPath = window.location.pathname;
+    const currentHash = window.location.hash;
     
-    navLinks.forEach(link => {
-        const linkPath = new URL(link.href).pathname;
-        if (currentPath === linkPath || 
-            (currentPath === '/' && linkPath.includes('index.html')) ||
-            (currentPath.includes('index.html') && linkPath.includes('index.html'))) {
-            link.classList.add('active');
-        }
-    });
+    function updateActiveNav() {
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            
+            const linkPath = new URL(link.href).pathname;
+            const linkHash = new URL(link.href).hash;
+            
+            // Check if we're on index page
+            const isIndexPage = currentPath === '/' || currentPath.includes('index.html');
+            
+            // Highlight only the current section
+            if (linkHash && isIndexPage) {
+                // If link has hash and we're on index page
+                if (linkHash === currentHash || (linkHash === '' && currentHash === '')) {
+                    link.classList.add('active');
+                }
+            } else if (!linkHash && currentPath === linkPath) {
+                // For non-hash links, match exact path
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    updateActiveNav();
+    
+    // Update active state on hash change
+    window.addEventListener('hashchange', updateActiveNav);
+    
+    
+    // ===================================
+    // Brand Logo as Home Button
+    // ===================================
+    
+    const navBrand = document.querySelector('.nav-brand');
+    if (navBrand) {
+        navBrand.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'index.html';
+        });
+    }
     
     
     // ===================================
@@ -219,6 +264,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     top: offsetTop,
                     behavior: 'smooth'
                 });
+                
+                // Update URL hash
+                history.pushState(null, null, href);
+                updateActiveNav();
             }
         });
     });
