@@ -16,27 +16,27 @@ document.addEventListener('DOMContentLoaded', function() {
         return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
     }
     
-    // Scroll-linked zoom with 0-30% viewport mapping
+    // Scroll-linked zoom with 0-50% viewport mapping for more visible shrinking
     function updateHeroOnScroll() {
         if (!ticking) {
             window.requestAnimationFrame(function() {
                 const scrollY = window.pageYOffset || document.documentElement.scrollTop;
                 const viewportHeight = window.innerHeight;
                 
-                // Map scroll 0-30% of viewport height to progress 0-1
-                const scrollRange = viewportHeight * 0.3;
+                // Map scroll 0-50% of viewport height to progress 0-1 for more dramatic effect
+                const scrollRange = viewportHeight * 0.5;
                 const rawProgress = Math.min(scrollY / scrollRange, 1);
                 const scrollProgress = easeOutExpo(rawProgress);
                 
-                // Layer 1: Background scale 1.0 → 1.27
+                // Layer 1: Background scale 1.0 → 1.4 (increased for more visible zoom)
                 if (heroBackground) {
-                    const bgScale = 1 + (scrollProgress * 0.27);
+                    const bgScale = 1 + (scrollProgress * 0.4);
                     heroBackground.style.transform = `scale(${bgScale})`;
                 }
                 
-                // Layer 2: Heading scale 1.0 → 0.89
+                // Layer 2: Heading scale 1.0 → 0.7 (increased shrink for more dramatic effect)
                 if (heroHeading) {
-                    const headingScale = 1 - (scrollProgress * 0.11);
+                    const headingScale = 1 - (scrollProgress * 0.3);
                     heroHeading.style.transform = `scale(${headingScale})`;
                 }
                 
@@ -249,7 +249,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function updateNavbar() {
         const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-        if (scrollY > 50) {
+        const heroHeight = heroSection?.offsetHeight || window.innerHeight * 0.75;
+        
+        // Only turn white after scrolling past the hero text (60% of hero height)
+        if (scrollY > heroHeight * 0.6) {
             navbar?.classList.add('scrolled');
         } else {
             navbar?.classList.remove('scrolled');

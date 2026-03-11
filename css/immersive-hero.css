@@ -239,7 +239,7 @@
 /* Bottom: Description Text */
 .hero-description {
     max-width: 640px;
-    margin-top: 4rem;
+    margin-top: 10rem;
 }
 
 .hero-description p {
@@ -553,7 +553,7 @@
     }
 
     .hero-description {
-        margin-top: 3rem;
+        margin-top: 8rem;
     }
 
     .hero-description p {
@@ -670,7 +670,7 @@
     }
 
     .hero-description {
-        margin-top: 2.5rem;
+        margin-top: 6rem;
     }
 
     .hero-description p {
@@ -777,7 +777,7 @@
     }
 
     .hero-description {
-        margin-top: 2rem;
+        margin-top: 4rem;
     }
 
     .hero-description p {
