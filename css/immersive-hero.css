@@ -115,73 +115,55 @@
     }
 }
 
-/* === Immersive Hero with Extended Gradient === */
+/* === Immersive Hero with Extended Background === */
 .immersive-hero {
     position: relative;
     width: 100%;
     height: 100vh;
     min-height: 700px;
+    margin-bottom: -20rem;
     overflow: visible;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #fefefe 0%, #f5f3ef 50%, #faf9f7 100%);
+    background: transparent;
+    z-index: 1;
 }
 
-/* Extended gradient that spills into next section */
-.immersive-hero::after {
-    content: '';
-    position: absolute;
-    bottom: -300px;
-    left: 0;
-    right: 0;
-    height: 300px;
-    background: linear-gradient(to bottom,
-        rgba(250, 249, 247, 1) 0%,
-        rgba(250, 249, 247, 0.7) 40%,
-        rgba(250, 249, 247, 0) 100%);
-    pointer-events: none;
-    z-index: 10;
-}
-
-/* Background Layer with Prominent Gradient Blob */
+/* Extended background that bleeds into next section */
 .hero-background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #fefefe 0%, #f5f3ef 50%, #faf9f7 100%);
+    height: calc(100% + 30rem);
+    background: linear-gradient(to bottom,
+        #fefefe 0%,
+        #f5f3ef 30%,
+        #faf9f7 60%,
+        rgba(250, 249, 247, 0.6) 85%,
+        rgba(250, 249, 247, 0) 100%);
     transform-style: preserve-3d;
     will-change: transform;
     transition: transform 0.05s linear;
 }
 
+/* Prominent gradient blob that extends beyond hero */
 .hero-background::before {
     content: '';
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 1200px;
-    height: 1000px;
-    background: radial-gradient(ellipse, rgba(40, 40, 40, 0.6) 0%, rgba(40, 40, 40, 0.35) 30%, rgba(40, 40, 40, 0.15) 60%, transparent 80%);
-    filter: blur(120px);
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* Gradient blob extends beyond hero */
-.hero-background::after {
-    content: '';
-    position: absolute;
-    bottom: -400px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1000px;
-    height: 500px;
-    background: radial-gradient(ellipse at top, rgba(40, 40, 40, 0.25) 0%, rgba(40, 40, 40, 0.1) 50%, transparent 80%);
-    filter: blur(100px);
+    width: 1400px;
+    height: 1400px;
+    background: radial-gradient(ellipse, 
+        rgba(40, 40, 40, 0.65) 0%, 
+        rgba(40, 40, 40, 0.4) 25%, 
+        rgba(40, 40, 40, 0.2) 50%,
+        rgba(40, 40, 40, 0.08) 70%,
+        transparent 85%);
+    filter: blur(140px);
     pointer-events: none;
     z-index: 1;
 }
@@ -247,12 +229,12 @@
     margin: 0;
 }
 
-/* === Card Stacking Portfolio Section with Transparent Background === */
+/* === Card Stacking Portfolio Section === */
 .portfolio-stacking {
     position: relative;
     background: transparent;
-    padding-top: 18rem;
-    z-index: 5;
+    padding-top: 12rem;
+    z-index: 2;
 }
 
 .portfolio-header {
@@ -280,10 +262,8 @@
 
 .stacking-cards-container {
     position: relative;
-    padding-bottom: 8rem;
+    padding: 2rem 0 8rem;
     background: #faf9f7;
-    padding-top: 2rem;
-    border-radius: 0;
 }
 
 /* Increased card width by 20% (780 * 1.2 = 936px) */
@@ -547,13 +527,16 @@
         font-size: 1rem;
     }
 
-    .immersive-hero::after {
-        bottom: -200px;
-        height: 200px;
+    .immersive-hero {
+        margin-bottom: -15rem;
+    }
+
+    .hero-background {
+        height: calc(100% + 25rem);
     }
 
     .portfolio-stacking {
-        padding-top: 14rem;
+        padding-top: 10rem;
     }
 
     .portfolio-header {
@@ -642,11 +625,11 @@
 
     .immersive-hero {
         min-height: 550px;
+        margin-bottom: -12rem;
     }
 
-    .immersive-hero::after {
-        bottom: -150px;
-        height: 150px;
+    .hero-background {
+        height: calc(100% + 20rem);
     }
 
     .hero-content-wrapper {
@@ -666,7 +649,7 @@
     }
 
     .portfolio-stacking {
-        padding-top: 10rem;
+        padding-top: 8rem;
     }
 
     .portfolio-header {
@@ -749,11 +732,11 @@
 
     .immersive-hero {
         min-height: 500px;
+        margin-bottom: -10rem;
     }
 
-    .immersive-hero::after {
-        bottom: -100px;
-        height: 100px;
+    .hero-background {
+        height: calc(100% + 18rem);
     }
 
     .hero-content-wrapper {
@@ -769,7 +752,7 @@
     }
 
     .portfolio-stacking {
-        padding-top: 8rem;
+        padding-top: 6rem;
     }
 
     .portfolio-header {
