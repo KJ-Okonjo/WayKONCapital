@@ -1,6 +1,6 @@
 // ===================================
 // Immersive Hero Scroll-Linked Zoom Animations
-// WayKON Capital
+// WayKON Capital - Superdesign Style
 // ===================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -11,6 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let ticking = false;
     
+    // Easing function matching Superdesign cubic-bezier(0.16, 1, 0.3, 1)
+    function easeOutExpo(t) {
+        return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+    }
+    
     // Scroll-linked zoom with 0-30% viewport mapping
     function updateHeroOnScroll() {
         if (!ticking) {
@@ -20,7 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Map scroll 0-30% of viewport height to progress 0-1
                 const scrollRange = viewportHeight * 0.3;
-                const scrollProgress = Math.min(scrollY / scrollRange, 1);
+                const rawProgress = Math.min(scrollY / scrollRange, 1);
+                const scrollProgress = easeOutExpo(rawProgress);
                 
                 // Layer 1: Background scale 1.0 → 1.27
                 if (heroBackground) {

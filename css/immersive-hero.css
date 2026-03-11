@@ -1,6 +1,6 @@
 /* ===================================
    Immersive Hero & Card Stacking
-   WayKON Capital - Light Theme with Glow Effects
+   WayKON Capital - Superdesign Style Hero
    =================================== */
 
 /* === Fixed Navigation === */
@@ -11,13 +11,15 @@
     right: 0;
     z-index: 50;
     background-color: transparent;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    mix-blend-mode: difference;
 }
 
 .navbar-immersive.scrolled {
     background-color: rgba(250, 249, 247, 0.95);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    mix-blend-mode: normal;
 }
 
 .nav-container {
@@ -33,12 +35,20 @@
     font-size: 16px;
     font-weight: 500;
     letter-spacing: -0.01em;
-    color: #111111;
+    color: #e5e5e5;
     cursor: pointer;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.navbar-immersive.scrolled .nav-brand {
+    color: #111111;
 }
 
 .nav-brand:hover {
+    color: #ffffff;
+}
+
+.navbar-immersive.scrolled .nav-brand:hover {
     opacity: 0.6;
 }
 
@@ -51,13 +61,21 @@
     font-size: 14px;
     font-weight: 500;
     letter-spacing: -0.005em;
-    color: #111111;
+    color: #e5e5e5;
     text-decoration: none;
     position: relative;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.navbar-immersive.scrolled .nav-links a {
+    color: #111111;
 }
 
 .nav-links a:hover {
+    color: #ffffff;
+}
+
+.navbar-immersive.scrolled .nav-links a:hover {
     opacity: 0.6;
 }
 
@@ -68,8 +86,12 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, #111111 0%, #666666 100%);
+    background: linear-gradient(90deg, #e5e5e5 0%, #888888 100%);
     animation: slideIn 0.3s ease-out;
+}
+
+.navbar-immersive.scrolled .nav-links a.active::after {
+    background: linear-gradient(90deg, #111111 0%, #666666 100%);
 }
 
 @keyframes slideIn {
@@ -85,8 +107,13 @@
     display: none;
     background: none;
     border: none;
-    color: #111111;
+    color: #e5e5e5;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.navbar-immersive.scrolled .nav-toggle-immersive {
+    color: #111111;
 }
 
 .nav-toggle-immersive i {
@@ -115,49 +142,38 @@
     }
 }
 
-/* === Immersive Hero === */
+/* === Immersive Hero - Superdesign Style === */
 .immersive-hero {
     position: relative;
     width: 100%;
     height: 100vh;
-    min-height: 857px;
+    min-height: 860px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #1a1a1a;
+    background: #000000;
     z-index: 1;
 }
 
-/* Layer 1: Background Image with Radial Tint and Grain */
+/* Layer 1: Background with Radial White Glow */
 .hero-background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&h=1080&fit=crop&q=80');
-    background-size: cover;
-    background-position: center;
+    background: radial-gradient(ellipse at center,
+        rgba(255, 255, 255, 0.18) 0%,
+        rgba(40, 40, 40, 0.55) 55%,
+        rgba(0, 0, 0, 0.95) 100%);
     transform-style: preserve-3d;
     will-change: transform;
     transform: scale(1);
-}
-
-.hero-background::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(ellipse at center, 
-        rgba(26, 26, 26, 0.4) 0%, 
-        rgba(26, 26, 26, 0.7) 50%,
-        rgba(26, 26, 26, 0.9) 100%);
     z-index: 1;
 }
 
+/* Noise/Grain Overlay */
 .grain-overlay {
     position: absolute;
     top: 0;
@@ -167,7 +183,8 @@
     background-image: 
         repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px),
         repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px);
-    opacity: 0.5;
+    opacity: 0.15;
+    mix-blend-mode: overlay;
     pointer-events: none;
     z-index: 2;
 }
@@ -192,16 +209,17 @@
     transform-style: preserve-3d;
     will-change: transform;
     transform: scale(1);
-    margin-bottom: 2rem;
+    margin-bottom: 0;
 }
 
 .hero-main-heading h1 {
-    font-size: 12vw;
-    font-weight: 500;
+    font-size: clamp(4rem, 11vw, 12rem);
+    font-weight: 900;
     color: #e5e5e5;
     margin: 0;
-    line-height: 1;
+    line-height: 0.95;
     letter-spacing: -0.03em;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* Layer 3: Secondary Label Overlay */
@@ -210,23 +228,25 @@
     left: calc(100% + 1rem);
     top: 0;
     font-size: 32px;
-    font-weight: 300;
-    color: #e5e5e5;
+    font-weight: 400;
+    color: #888888;
     white-space: nowrap;
     opacity: 1;
     will-change: opacity;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Bottom: Description Text */
 .hero-description {
-    max-width: 42rem;
-    margin-top: 1rem;
+    max-width: 640px;
+    margin-top: 8rem;
 }
 
 .hero-description p {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 1.125rem;
-    line-height: 1.7;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.6;
     margin: 0;
 }
 
@@ -249,10 +269,10 @@
     height: 120px;
     background: linear-gradient(
         to bottom,
-        rgba(40, 40, 40, 0.35),
-        rgba(40, 40, 40, 0.18) 50%,
-        rgba(40, 40, 40, 0.05) 75%,
-        rgba(40, 40, 40, 0)
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.05) 75%,
+        rgba(0, 0, 0, 0)
     );
     pointer-events: none;
     z-index: 1;
@@ -264,6 +284,8 @@
     max-width: 1400px;
     margin: 0 auto;
     background: transparent;
+    position: relative;
+    z-index: 2;
 }
 
 .portfolio-header h2 {
@@ -542,15 +564,19 @@
     }
 
     .hero-main-heading h1 {
-        font-size: 14vw;
+        font-size: clamp(3.5rem, 10vw, 10rem);
     }
 
     .hero-secondary-label {
         font-size: 24px;
     }
 
+    .hero-description {
+        margin-top: 6rem;
+    }
+
     .hero-description p {
-        font-size: 1rem;
+        font-size: 18px;
     }
 
     .portfolio-stacking {
@@ -631,6 +657,7 @@
 
     .nav-links a {
         font-size: 15px;
+        color: #111111;
     }
 
     .nav-links.active {
@@ -650,7 +677,7 @@
     }
 
     .hero-main-heading h1 {
-        font-size: 16vw;
+        font-size: clamp(3rem, 14vw, 8rem);
     }
 
     .hero-secondary-label {
@@ -661,11 +688,11 @@
     }
 
     .hero-description {
-        margin-top: 1.5rem;
+        margin-top: 4rem;
     }
 
     .hero-description p {
-        font-size: 0.9375rem;
+        font-size: 16px;
     }
 
     .portfolio-stacking {
@@ -759,15 +786,19 @@
     }
 
     .hero-main-heading h1 {
-        font-size: 18vw;
+        font-size: clamp(2.5rem, 16vw, 6rem);
     }
 
     .hero-secondary-label {
         font-size: 18px;
     }
 
+    .hero-description {
+        margin-top: 3rem;
+    }
+
     .hero-description p {
-        font-size: 0.875rem;
+        font-size: 15px;
     }
 
     .portfolio-stacking {
