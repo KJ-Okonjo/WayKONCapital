@@ -1,63 +1,43 @@
 // ===================================
-// Immersive Hero Scroll Animations with Smooth Drag Resistance
+// Immersive Hero Scroll-Linked Zoom Animations
+// WayKON Capital
 // ===================================
 
 document.addEventListener('DOMContentLoaded', function() {
     const heroSection = document.getElementById('immersiveHero');
     const heroBackground = document.getElementById('heroBackground');
     const heroHeading = document.getElementById('heroHeading');
-    const heroHeadingText = heroHeading?.querySelector('h1');
+    const heroLabel = document.getElementById('heroLabel');
     
     let ticking = false;
-    let scrollProgress = 0;
-    let targetScrollProgress = 0;
-    let currentFontWeight = 200;
-    let targetFontWeight = 200;
-    const maxFontWeight = 900;
-    const minFontWeight = 200;
     
-    // Animation lags behind scroll for drag feel
-    const animationLag = 0.12; // Smooth lag for drag resistance feel
-    
-    // Enhanced scroll handler with animation lag (not scroll blocking)
+    // Scroll-linked zoom with 0-30% viewport mapping
     function updateHeroOnScroll() {
         if (!ticking) {
             window.requestAnimationFrame(function() {
                 const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-                const heroHeight = heroSection?.offsetHeight || window.innerHeight;
+                const viewportHeight = window.innerHeight;
                 
-                // Calculate target scroll progress (0 to 1) through hero
-                // Only affects hero section
-                targetScrollProgress = Math.min(scrollY / (heroHeight * 0.5), 1);
+                // Map scroll 0-30% of viewport height to progress 0-1
+                const scrollRange = viewportHeight * 0.3;
+                const scrollProgress = Math.min(scrollY / scrollRange, 1);
                 
-                // Animation smoothly lags behind actual scroll for drag feel
-                scrollProgress += (targetScrollProgress - scrollProgress) * animationLag;
-                
-                // Background scale: 1.0 → 1.27
-                const bgScale = 1 + (scrollProgress * 0.27);
+                // Layer 1: Background scale 1.0 → 1.27
                 if (heroBackground) {
+                    const bgScale = 1 + (scrollProgress * 0.27);
                     heroBackground.style.transform = `scale(${bgScale})`;
                 }
                 
-                // Heading scale: 1.0 → 0.89 (inverse)
-                const headingScale = 1 - (scrollProgress * 0.11);
+                // Layer 2: Heading scale 1.0 → 0.89
                 if (heroHeading) {
+                    const headingScale = 1 - (scrollProgress * 0.11);
                     heroHeading.style.transform = `scale(${headingScale})`;
                 }
                 
-                // Calculate target font weight with exponential easing
-                const fontWeightRange = maxFontWeight - minFontWeight;
-                const easedProgress = Math.pow(scrollProgress, 0.6);
-                targetFontWeight = minFontWeight + (easedProgress * fontWeightRange);
-                
-                // Smooth interpolation for font weight with lag
-                currentFontWeight += (targetFontWeight - currentFontWeight) * animationLag;
-                
-                // Apply font weight
-                if (heroHeadingText) {
-                    const roundedWeight = Math.round(currentFontWeight);
-                    heroHeadingText.style.fontWeight = roundedWeight.toString();
-                    heroHeadingText.style.fontVariationSettings = `'wght' ${roundedWeight}`;
+                // Layer 3: Secondary label fade out
+                if (heroLabel) {
+                    const labelOpacity = 1 - scrollProgress;
+                    heroLabel.style.opacity = labelOpacity;
                 }
                 
                 ticking = false;
@@ -67,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Normal scroll listener - no blocking
+    // Attach scroll listener
     if (heroSection) {
         window.addEventListener('scroll', updateHeroOnScroll, { passive: true });
         updateHeroOnScroll(); // Initial call
