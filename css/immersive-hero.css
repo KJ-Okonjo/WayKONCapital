@@ -154,6 +154,9 @@
     justify-content: center;
     background: #000000;
     z-index: 1;
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform 0.05s linear;
 }
 
 /* Layer 1: Background with Radial Silver Glow */

@@ -18,15 +18,15 @@ document.addEventListener('DOMContentLoaded', function() {
         return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
     }
     
-    // Scroll-linked zoom - entire hero recedes and slides back
+    // Scroll-linked zoom - entire hero recedes, slides back, and pushes out of view
     function updateHeroOnScroll() {
         if (!ticking) {
             window.requestAnimationFrame(function() {
                 const scrollY = window.pageYOffset || document.documentElement.scrollTop;
                 const viewportHeight = window.innerHeight;
                 
-                // Map scroll 0-50% of viewport height to progress 0-1
-                const scrollRange = viewportHeight * 0.5;
+                // Map scroll 0-70% of viewport height to progress 0-1 for smoother push effect
+                const scrollRange = viewportHeight * 0.7;
                 const rawProgress = Math.min(scrollY / scrollRange, 1);
                 const scrollProgress = easeOutExpo(rawProgress);
                 
@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     heroBackground.style.transform = `scale(${bgScale})`;
                 }
                 
-                // Layer 2: Entire content wrapper scales down and slides back
+                // Layer 2: Entire content wrapper scales down and slides back dramatically
                 if (heroContentWrapper) {
                     const contentScale = 1 - (scrollProgress * 0.35);
-                    const slideBack = scrollProgress * 50; // Slide back 50px
+                    const slideBack = scrollProgress * 150; // Increased slide back for push effect
                     heroContentWrapper.style.transform = `scale(${contentScale}) translateY(${slideBack}px)`;
                 }
                 
@@ -49,12 +49,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     heroLabel.style.opacity = labelOpacity;
                 }
                 
-                // Layer 4: Description fades and shrinks faster
+                // Layer 4: Description fades slower and shrinks
                 if (heroDescription) {
                     const descScale = 1 - (scrollProgress * 0.5);
-                    const descOpacity = 1 - (scrollProgress * 1.2); // Fades faster
+                    const descOpacity = 1 - (scrollProgress * 0.7); // Slower fade (was 1.2)
                     heroDescription.style.transform = `scale(${descScale})`;
                     heroDescription.style.opacity = Math.max(0, descOpacity);
+                }
+                
+                // Layer 5: Push entire hero section up and out of view
+                if (heroSection) {
+                    const pushUp = scrollProgress * 200; // Push hero up by 200px
+                    heroSection.style.transform = `translateY(-${pushUp}px)`;
                 }
                 
                 ticking = false;
