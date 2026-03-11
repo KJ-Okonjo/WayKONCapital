@@ -261,7 +261,7 @@
 .portfolio-stacking {
     position: relative;
     background: #faf9f7;
-    padding-top: 4rem;
+    padding-top: 1rem;
     margin-top: 0;
     z-index: 2;
 }
@@ -568,7 +568,7 @@
     }
 
     .portfolio-stacking {
-        padding-top: 3rem;
+        padding-top: 1rem;
     }
 
     .portfolio-header {
@@ -685,7 +685,7 @@
     }
 
     .portfolio-stacking {
-        padding-top: 2.5rem;
+        padding-top: 1rem;
     }
 
     .portfolio-header {
@@ -792,7 +792,7 @@
     }
 
     .portfolio-stacking {
-        padding-top: 2rem;
+        padding-top: 1rem;
     }
 
     .portfolio-header {
