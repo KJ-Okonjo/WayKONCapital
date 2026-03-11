@@ -45,6 +45,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     heroHeading.style.transform = `scale(${headingScale})`;
                 }
                 
+                // Hero fade out: 1.0 → 0.0
+                const heroOpacity = Math.max(1 - (scrollProgress * 1.2), 0);
+                if (heroSection) {
+                    heroSection.style.opacity = heroOpacity.toString();
+                }
+                
                 // Calculate target font weight with exponential easing
                 const fontWeightRange = maxFontWeight - minFontWeight;
                 const easedProgress = Math.pow(scrollProgress, 0.6);

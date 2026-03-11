@@ -115,34 +115,32 @@
     }
 }
 
-/* === Immersive Hero with Extended Background === */
+/* === Immersive Hero === */
 .immersive-hero {
     position: relative;
     width: 100%;
     height: 100vh;
     min-height: 700px;
-    margin-bottom: -20rem;
-    overflow: visible;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     background: transparent;
     z-index: 1;
+    will-change: opacity;
+    transition: opacity 0.3s ease-out;
 }
 
-/* Extended background that bleeds into next section */
 .hero-background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(100% + 30rem);
+    height: 100%;
     background: linear-gradient(to bottom,
         #fefefe 0%,
         #f5f3ef 30%,
-        #faf9f7 60%,
-        rgba(250, 249, 247, 0.6) 85%,
-        rgba(250, 249, 247, 0) 100%);
+        #faf9f7 100%);
     transform-style: preserve-3d;
     will-change: transform;
     transition: transform 0.05s linear;
@@ -232,8 +230,8 @@
 /* === Card Stacking Portfolio Section === */
 .portfolio-stacking {
     position: relative;
-    background: transparent;
-    padding-top: 12rem;
+    background: #faf9f7;
+    padding-top: 4rem;
     z-index: 2;
 }
 
@@ -242,6 +240,7 @@
     text-align: left;
     max-width: 1400px;
     margin: 0 auto;
+    background: transparent;
 }
 
 .portfolio-header h2 {
@@ -527,16 +526,8 @@
         font-size: 1rem;
     }
 
-    .immersive-hero {
-        margin-bottom: -15rem;
-    }
-
-    .hero-background {
-        height: calc(100% + 25rem);
-    }
-
     .portfolio-stacking {
-        padding-top: 10rem;
+        padding-top: 3rem;
     }
 
     .portfolio-header {
@@ -625,11 +616,6 @@
 
     .immersive-hero {
         min-height: 550px;
-        margin-bottom: -12rem;
-    }
-
-    .hero-background {
-        height: calc(100% + 20rem);
     }
 
     .hero-content-wrapper {
@@ -649,7 +635,7 @@
     }
 
     .portfolio-stacking {
-        padding-top: 8rem;
+        padding-top: 2.5rem;
     }
 
     .portfolio-header {
@@ -732,11 +718,6 @@
 
     .immersive-hero {
         min-height: 500px;
-        margin-bottom: -10rem;
-    }
-
-    .hero-background {
-        height: calc(100% + 18rem);
     }
 
     .hero-content-wrapper {
@@ -752,7 +733,7 @@
     }
 
     .portfolio-stacking {
-        padding-top: 6rem;
+        padding-top: 2rem;
     }
 
     .portfolio-header {
