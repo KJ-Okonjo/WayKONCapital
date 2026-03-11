@@ -146,8 +146,8 @@
 .immersive-hero {
     position: relative;
     width: 100%;
-    height: 100vh;
-    min-height: 860px;
+    height: 75vh;
+    min-height: 650px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -156,7 +156,7 @@
     z-index: 1;
 }
 
-/* Layer 1: Background with Radial White Glow */
+/* Layer 1: Background with Radial Silver Glow */
 .hero-background {
     position: absolute;
     top: 0;
@@ -164,8 +164,8 @@
     width: 100%;
     height: 100%;
     background: radial-gradient(ellipse at center,
-        rgba(255, 255, 255, 0.18) 0%,
-        rgba(40, 40, 40, 0.55) 55%,
+        rgba(192, 192, 192, 0.25) 0%,
+        rgba(96, 96, 96, 0.4) 45%,
         rgba(0, 0, 0, 0.95) 100%);
     transform-style: preserve-3d;
     will-change: transform;
@@ -213,8 +213,8 @@
 }
 
 .hero-main-heading h1 {
-    font-size: clamp(4rem, 11vw, 12rem);
-    font-weight: 900;
+    font-size: clamp(3.5rem, 9vw, 10rem);
+    font-weight: 700;
     color: #e5e5e5;
     margin: 0;
     line-height: 0.95;
@@ -227,7 +227,7 @@
     position: absolute;
     left: calc(100% + 1rem);
     top: 0;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 400;
     color: #888888;
     white-space: nowrap;
@@ -239,12 +239,12 @@
 /* Bottom: Description Text */
 .hero-description {
     max-width: 640px;
-    margin-top: 8rem;
+    margin-top: 4rem;
 }
 
 .hero-description p {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 300;
     line-height: 1.6;
     margin: 0;
@@ -255,27 +255,8 @@
     position: relative;
     background: #faf9f7;
     padding-top: 4rem;
-    margin-top: -1px;
+    margin-top: 0;
     z-index: 2;
-}
-
-/* Gradient overlay at top of portfolio section */
-.portfolio-stacking::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 120px;
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.6),
-        rgba(0, 0, 0, 0.3) 50%,
-        rgba(0, 0, 0, 0.05) 75%,
-        rgba(0, 0, 0, 0)
-    );
-    pointer-events: none;
-    z-index: 1;
 }
 
 .portfolio-header {
@@ -564,19 +545,19 @@
     }
 
     .hero-main-heading h1 {
-        font-size: clamp(3.5rem, 10vw, 10rem);
+        font-size: clamp(3rem, 8vw, 9rem);
     }
 
     .hero-secondary-label {
-        font-size: 24px;
+        font-size: 22px;
     }
 
     .hero-description {
-        margin-top: 6rem;
+        margin-top: 3rem;
     }
 
     .hero-description p {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .portfolio-stacking {
@@ -669,7 +650,8 @@
     }
 
     .immersive-hero {
-        min-height: 700px;
+        min-height: 550px;
+        height: 70vh;
     }
 
     .hero-content-wrapper {
@@ -677,22 +659,22 @@
     }
 
     .hero-main-heading h1 {
-        font-size: clamp(3rem, 14vw, 8rem);
+        font-size: clamp(2.5rem, 12vw, 7rem);
     }
 
     .hero-secondary-label {
         position: relative;
         left: 0;
         margin-top: 0.5rem;
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .hero-description {
-        margin-top: 4rem;
+        margin-top: 2.5rem;
     }
 
     .hero-description p {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .portfolio-stacking {
@@ -778,7 +760,8 @@
     }
 
     .immersive-hero {
-        min-height: 600px;
+        min-height: 500px;
+        height: 65vh;
     }
 
     .hero-content-wrapper {
@@ -786,19 +769,19 @@
     }
 
     .hero-main-heading h1 {
-        font-size: clamp(2.5rem, 16vw, 6rem);
+        font-size: clamp(2rem, 14vw, 5rem);
     }
 
     .hero-secondary-label {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .hero-description {
-        margin-top: 3rem;
+        margin-top: 2rem;
     }
 
     .hero-description p {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .portfolio-stacking {
