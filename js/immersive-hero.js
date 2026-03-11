@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroBackground = document.getElementById('heroBackground');
     const heroHeading = document.getElementById('heroHeading');
     const heroLabel = document.getElementById('heroLabel');
+    const heroContentWrapper = document.querySelector('.hero-content-wrapper');
+    const heroDescription = document.querySelector('.hero-description');
     
     let ticking = false;
     
@@ -16,34 +18,43 @@ document.addEventListener('DOMContentLoaded', function() {
         return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
     }
     
-    // Scroll-linked zoom with 0-50% viewport mapping for more visible shrinking
+    // Scroll-linked zoom - entire hero recedes and slides back
     function updateHeroOnScroll() {
         if (!ticking) {
             window.requestAnimationFrame(function() {
                 const scrollY = window.pageYOffset || document.documentElement.scrollTop;
                 const viewportHeight = window.innerHeight;
                 
-                // Map scroll 0-50% of viewport height to progress 0-1 for more dramatic effect
+                // Map scroll 0-50% of viewport height to progress 0-1
                 const scrollRange = viewportHeight * 0.5;
                 const rawProgress = Math.min(scrollY / scrollRange, 1);
                 const scrollProgress = easeOutExpo(rawProgress);
                 
-                // Layer 1: Background scale 1.0 → 1.4 (increased for more visible zoom)
+                // Layer 1: Background scale 1.0 → 1.5 (zooms in as content recedes)
                 if (heroBackground) {
-                    const bgScale = 1 + (scrollProgress * 0.4);
+                    const bgScale = 1 + (scrollProgress * 0.5);
                     heroBackground.style.transform = `scale(${bgScale})`;
                 }
                 
-                // Layer 2: Heading scale 1.0 → 0.7 (increased shrink for more dramatic effect)
-                if (heroHeading) {
-                    const headingScale = 1 - (scrollProgress * 0.3);
-                    heroHeading.style.transform = `scale(${headingScale})`;
+                // Layer 2: Entire content wrapper scales down and slides back
+                if (heroContentWrapper) {
+                    const contentScale = 1 - (scrollProgress * 0.35);
+                    const slideBack = scrollProgress * 50; // Slide back 50px
+                    heroContentWrapper.style.transform = `scale(${contentScale}) translateY(${slideBack}px)`;
                 }
                 
                 // Layer 3: Secondary label fade out
                 if (heroLabel) {
                     const labelOpacity = 1 - scrollProgress;
                     heroLabel.style.opacity = labelOpacity;
+                }
+                
+                // Layer 4: Description fades and shrinks faster
+                if (heroDescription) {
+                    const descScale = 1 - (scrollProgress * 0.5);
+                    const descOpacity = 1 - (scrollProgress * 1.2); // Fades faster
+                    heroDescription.style.transform = `scale(${descScale})`;
+                    heroDescription.style.opacity = Math.max(0, descOpacity);
                 }
                 
                 ticking = false;

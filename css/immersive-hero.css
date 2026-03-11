@@ -201,6 +201,8 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
 }
 
 /* Layer 2: Main Heading with Scroll-Linked Scale */
@@ -239,7 +241,9 @@
 /* Bottom: Description Text */
 .hero-description {
     max-width: 640px;
-    margin-top: 10rem;
+    margin-top: 4rem;
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
 }
 
 .hero-description p {
@@ -553,7 +557,7 @@
     }
 
     .hero-description {
-        margin-top: 8rem;
+        margin-top: 3rem;
     }
 
     .hero-description p {
@@ -670,7 +674,7 @@
     }
 
     .hero-description {
-        margin-top: 6rem;
+        margin-top: 2.5rem;
     }
 
     .hero-description p {
@@ -777,7 +781,7 @@
     }
 
     .hero-description {
-        margin-top: 4rem;
+        margin-top: 2rem;
     }
 
     .hero-description p {
