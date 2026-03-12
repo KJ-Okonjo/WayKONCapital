@@ -261,14 +261,17 @@
 .portfolio-stacking {
     position: relative;
     background: #faf9f7;
-    padding-top: 0;
-    margin-top: 0;
+    padding-top: 4rem;
+    margin-top: -150px;
     z-index: 2;
 }
 
 .portfolio-header {
-    padding: 0 3rem 1.5rem;
-    text-align: left;
+    padding: 0 3rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 4rem;
     max-width: 1400px;
     margin: 0 auto;
     background: transparent;
@@ -278,18 +281,21 @@
 
 .portfolio-header h2 {
     font-size: 6vw;
-    font-weight: 500;
-    letter-spacing: -0.02em;
+    font-weight: 700;
+    letter-spacing: -0.03em;
     color: #111111;
-    margin-bottom: 1.5rem;
+    margin: 0;
+    flex-shrink: 0;
+    line-height: 1;
 }
 
-.portfolio-header p {
+.portfolio-description {
     font-size: 1.125rem;
     line-height: 1.7;
-    color: rgba(0, 0, 0, 0.6);
-    max-width: 700px;
-    margin: 0;
+    color: rgba(0, 0, 0, 0.65);
+    max-width: 500px;
+    margin: 0.5rem 0 0 0;
+    flex-shrink: 1;
 }
 
 .stacking-cards-container {
@@ -568,15 +574,22 @@
     }
 
     .portfolio-stacking {
-        padding-top: 0;
+        padding-top: 3rem;
+        margin-top: -100px;
     }
 
     .portfolio-header {
-        padding: 0 2rem 1.5rem;
+        padding: 0 2rem 2rem;
+        flex-direction: column;
+        gap: 2rem;
     }
 
     .portfolio-header h2 {
         font-size: 8vw;
+    }
+
+    .portfolio-description {
+        max-width: 100%;
     }
 
     .stacking-card {
@@ -685,19 +698,23 @@
     }
 
     .portfolio-stacking {
-        padding-top: 0;
+        padding-top: 2.5rem;
+        margin-top: -80px;
     }
 
     .portfolio-header {
-        padding: 0 1.5rem 1.25rem;
+        padding: 0 1.5rem 1.5rem;
+        flex-direction: column;
+        gap: 1.5rem;
     }
 
     .portfolio-header h2 {
         font-size: 11vw;
     }
 
-    .portfolio-header p {
+    .portfolio-description {
         font-size: 1rem;
+        max-width: 100%;
     }
 
     .stacking-card {
@@ -792,19 +809,23 @@
     }
 
     .portfolio-stacking {
-        padding-top: 0;
+        padding-top: 2rem;
+        margin-top: -60px;
     }
 
     .portfolio-header {
-        padding: 0 1.25rem 1rem;
+        padding: 0 1.25rem 1.25rem;
+        flex-direction: column;
+        gap: 1.25rem;
     }
 
     .portfolio-header h2 {
         font-size: 13vw;
     }
 
-    .portfolio-header p {
+    .portfolio-description {
         font-size: 0.9375rem;
+        max-width: 100%;
     }
 
     .stacking-card {
