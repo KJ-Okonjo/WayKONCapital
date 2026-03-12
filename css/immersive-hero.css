@@ -159,7 +159,7 @@
     transition: transform 0.05s linear;
 }
 
-/* Layer 1: Background with Radial Gold Glow */
+/* Layer 1: Background with Radial Silver Glow */
 .hero-background {
     position: absolute;
     top: 0;
@@ -167,8 +167,8 @@
     width: 100%;
     height: 100%;
     background: radial-gradient(ellipse at center,
-        rgba(218, 165, 32, 0.35) 0%,
-        rgba(184, 134, 11, 0.5) 45%,
+        rgba(192, 192, 192, 0.25) 0%,
+        rgba(96, 96, 96, 0.4) 45%,
         rgba(0, 0, 0, 0.95) 100%);
     transform-style: preserve-3d;
     will-change: transform;
