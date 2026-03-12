@@ -159,7 +159,7 @@
     transition: transform 0.05s linear;
 }
 
-/* Layer 1: Background with Radial Silver Glow */
+/* Layer 1: Background with Radial Gold Glow */
 .hero-background {
     position: absolute;
     top: 0;
@@ -167,8 +167,8 @@
     width: 100%;
     height: 100%;
     background: radial-gradient(ellipse at center,
-        rgba(192, 192, 192, 0.25) 0%,
-        rgba(96, 96, 96, 0.4) 45%,
+        rgba(218, 165, 32, 0.35) 0%,
+        rgba(184, 134, 11, 0.5) 45%,
         rgba(0, 0, 0, 0.95) 100%);
     transform-style: preserve-3d;
     will-change: transform;
@@ -594,28 +594,32 @@
 
     .stacking-card {
         flex-direction: column;
-        min-height: 450px;
-        max-width: 90%;
-        margin-bottom: 1.25rem;
+        min-height: 500px;
+        max-width: 92%;
+        margin-bottom: 1.5rem;
     }
 
     .card-background {
         width: 100%;
-        height: 50%;
+        height: 45%;
+        background-size: cover;
+        background-position: center;
     }
 
     .card-background::before {
-        background: linear-gradient(180deg, transparent 0%, rgba(26, 26, 26, 0.9) 100%);
+        background: linear-gradient(180deg, transparent 20%, rgba(26, 26, 26, 0.95) 100%);
     }
 
     .card-content {
         width: 100%;
         margin-left: 0;
-        padding: 2rem 1.5rem;
+        padding: 2.25rem 1.75rem;
     }
 
     .card-content h3 {
-        font-size: 1.75rem;
+        font-size: 1.875rem;
+        line-height: 1.2;
+        margin-bottom: 1.25rem;
     }
 
     .about-content-modern {
@@ -634,31 +638,37 @@
 
 @media (max-width: 768px) {
     .nav-container {
-        padding: 0.875rem 1.25rem;
+        padding: 1rem 1.5rem;
     }
 
     .nav-brand {
-        font-size: 14px;
+        font-size: 15px;
+        font-weight: 600;
     }
 
     .nav-links {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 260px;
+        width: 75%;
+        max-width: 320px;
         height: 100vh;
         background-color: rgba(250, 249, 247, 0.98);
         backdrop-filter: blur(20px);
         flex-direction: column;
-        padding: 5rem 1.5rem 2rem;
-        gap: 1.5rem;
+        padding: 6rem 2rem 2rem;
+        gap: 2rem;
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+        z-index: 100;
     }
 
     .nav-links a {
-        font-size: 15px;
+        font-size: 17px;
+        font-weight: 500;
         color: #111111;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     }
 
     .nav-links.active {
@@ -667,6 +677,15 @@
 
     .nav-toggle-immersive {
         display: block;
+        z-index: 101;
+        width: 32px;
+        height: 32px;
+        padding: 0.25rem;
+    }
+
+    .nav-toggle-immersive i {
+        width: 24px;
+        height: 24px;
     }
 
     .immersive-hero {
@@ -675,45 +694,49 @@
     }
 
     .hero-content-wrapper {
-        padding: 0 1.5rem;
+        padding: 0 1.75rem;
     }
 
     .hero-main-heading h1 {
-        font-size: clamp(2.5rem, 12vw, 7rem);
+        font-size: clamp(2.75rem, 13vw, 7rem);
+        letter-spacing: -0.04em;
     }
 
     .hero-secondary-label {
         position: relative;
         left: 0;
-        margin-top: 0.5rem;
-        font-size: 18px;
+        margin-top: 0.75rem;
+        font-size: 19px;
     }
 
     .hero-description {
-        margin-top: 2rem;
+        margin-top: 2.5rem;
     }
 
     .hero-description p {
-        font-size: 15px;
+        font-size: 16px;
+        line-height: 1.65;
     }
 
     .portfolio-stacking {
-        padding-top: 2.5rem;
+        padding-top: 3rem;
         margin-top: 0;
     }
 
     .portfolio-header {
-        padding: 0 1.5rem 1.5rem;
+        padding: 0 1.75rem 2rem;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1.75rem;
     }
 
     .portfolio-header h2 {
         font-size: 11vw;
+        line-height: 0.95;
     }
 
     .portfolio-description {
-        font-size: 1rem;
+        font-size: 1.0625rem;
+        line-height: 1.7;
         max-width: 100%;
     }
 
@@ -766,21 +789,34 @@
 
 @media (max-width: 480px) {
     .nav-container {
-        padding: 0.75rem 1rem;
+        padding: 0.875rem 1.25rem;
     }
 
     .nav-brand {
-        font-size: 13px;
+        font-size: 14px;
+        font-weight: 600;
     }
 
     .nav-links {
-        width: 240px;
-        padding: 4.5rem 1.25rem 1.5rem;
-        gap: 1.25rem;
+        width: 85%;
+        max-width: 280px;
+        padding: 5rem 1.5rem 2rem;
+        gap: 1.75rem;
     }
 
     .nav-links a {
-        font-size: 14px;
+        font-size: 16px;
+        padding: 0.5rem 0;
+    }
+
+    .nav-toggle-immersive {
+        width: 30px;
+        height: 30px;
+    }
+
+    .nav-toggle-immersive i {
+        width: 22px;
+        height: 22px;
     }
 
     .immersive-hero {
@@ -789,64 +825,90 @@
     }
 
     .hero-content-wrapper {
-        padding: 0 1.25rem;
+        padding: 0 1.5rem;
     }
 
     .hero-main-heading h1 {
-        font-size: clamp(2rem, 14vw, 5rem);
+        font-size: clamp(2.25rem, 15vw, 5rem);
+        letter-spacing: -0.04em;
     }
 
     .hero-secondary-label {
-        font-size: 16px;
+        font-size: 17px;
+        margin-top: 0.625rem;
     }
 
     .hero-description {
-        margin-top: 1.5rem;
+        margin-top: 2rem;
     }
 
     .hero-description p {
-        font-size: 14px;
+        font-size: 15px;
+        line-height: 1.65;
     }
 
     .portfolio-stacking {
-        padding-top: 2rem;
+        padding-top: 2.5rem;
         margin-top: 0;
     }
 
     .portfolio-header {
-        padding: 0 1.25rem 1.25rem;
+        padding: 0 1.5rem 1.5rem;
         flex-direction: column;
-        gap: 1.25rem;
+        gap: 1.5rem;
     }
 
     .portfolio-header h2 {
         font-size: 13vw;
+        line-height: 0.95;
     }
 
     .portfolio-description {
-        font-size: 0.9375rem;
+        font-size: 1rem;
+        line-height: 1.7;
         max-width: 100%;
     }
 
     .stacking-card {
-        min-height: 360px;
-        border-radius: 14px;
+        min-height: 480px;
+        max-width: 94%;
+        border-radius: 16px;
+        margin-bottom: 1.5rem;
+    }
+
+    .card-background {
+        height: 42%;
     }
 
     .card-content {
-        padding: 1.25rem;
+        padding: 2rem 1.5rem;
     }
 
     .card-content h3 {
-        font-size: 1.35rem;
+        font-size: 1.625rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
     }
 
     .card-content p {
-        font-size: 0.8125rem;
+        font-size: 0.9375rem;
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
     }
 
     .card-category {
-        font-size: 0.65rem;
+        font-size: 0.7rem;
+        padding: 0.4rem 0.75rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .card-tags {
+        margin-top: 1.25rem;
+        gap: 0.6rem;
+    }
+
+    .card-tag {
+        font-size: 0.75rem;
         padding: 0.35rem 0.7rem;
     }
 
