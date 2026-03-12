@@ -170,18 +170,18 @@ p {
 
 /* === Sections === */
 .section-modern {
-    padding: 8rem 0;
+    padding: 5rem 0;
     background-color: var(--color-white);
 }
 
 .section-modern-alt {
-    padding: 8rem 0;
+    padding: 5rem 0;
     background-color: var(--color-bg);
 }
 
 .section-header-modern {
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
 }
 
 .section-header-modern h2 {
@@ -206,7 +206,7 @@ p {
 /* === Page Hero === */
 .page-hero-modern {
     background: var(--color-bg);
-    padding: 12rem 0 6rem;
+    padding: 9rem 0 4rem;
     text-align: center;
 }
 
@@ -226,7 +226,7 @@ p {
 /* === CTA Section === */
 .cta-section-modern {
     background: var(--color-white);
-    padding: 8rem 0;
+    padding: 4rem 0;
 }
 
 .cta-content-modern {
@@ -237,13 +237,13 @@ p {
 
 .cta-content-modern h2 {
     font-size: 3rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .cta-content-modern p {
     color: var(--color-grey);
     font-size: 1.25rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .cta-buttons-modern {
@@ -257,14 +257,14 @@ p {
 .footer-modern {
     background: var(--color-black);
     color: var(--color-white);
-    padding: 5rem 0 2rem;
+    padding: 3.5rem 0 1.5rem;
 }
 
 .footer-content-modern {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 4rem;
-    margin-bottom: 3rem;
+    gap: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .footer-section-modern h3 {
@@ -388,19 +388,19 @@ p {
 .grid-2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
+    gap: 2rem;
 }
 
 .grid-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
+    gap: 2rem;
 }
 
 .grid-4 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
+    gap: 2rem;
 }
 
 /* === Animations === */
@@ -455,16 +455,16 @@ p {
     
     .footer-content-modern {
         grid-template-columns: repeat(2, 1fr);
-        gap: 3rem;
+        gap: 2rem;
     }
 
     .section-modern,
     .section-modern-alt {
-        padding: 6rem 0;
+        padding: 4rem 0;
     }
 
     .page-hero-modern {
-        padding: 9rem 0 4.5rem;
+        padding: 7rem 0 3rem;
     }
 }
 
@@ -490,15 +490,15 @@ p {
     
     .section-modern,
     .section-modern-alt {
-        padding: 4.5rem 0;
+        padding: 3rem 0;
     }
 
     .section-header-modern {
-        margin-bottom: 3.5rem;
+        margin-bottom: 2.5rem;
     }
     
     .page-hero-modern {
-        padding: 7rem 0 3.5rem;
+        padding: 5.5rem 0 2.5rem;
     }
     
     .page-hero-modern h1 {
@@ -510,7 +510,7 @@ p {
     }
     
     .cta-section-modern {
-        padding: 5rem 0;
+        padding: 3rem 0;
     }
     
     .cta-content-modern h2 {
@@ -519,6 +519,7 @@ p {
 
     .cta-content-modern p {
         font-size: 1.0625rem;
+        margin-bottom: 1.5rem;
     }
     
     .cta-buttons-modern {
@@ -540,11 +541,11 @@ p {
     
     .footer-content-modern {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 2rem;
     }
 
     .footer-modern {
-        padding: 4rem 0 1.5rem;
+        padding: 3rem 0 1.25rem;
     }
 
     .card-modern {
@@ -580,11 +581,11 @@ p {
 
     .section-modern,
     .section-modern-alt {
-        padding: 3.5rem 0;
+        padding: 2.5rem 0;
     }
 
     .section-header-modern {
-        margin-bottom: 2.5rem;
+        margin-bottom: 2rem;
     }
 
     .section-header-modern p {
@@ -592,7 +593,7 @@ p {
     }
     
     .page-hero-modern {
-        padding: 6rem 0 3rem;
+        padding: 4.5rem 0 2.5rem;
     }
     
     .page-hero-modern h1 {
@@ -604,7 +605,7 @@ p {
     }
 
     .cta-section-modern {
-        padding: 4rem 0;
+        padding: 2.5rem 0;
     }
 
     .cta-content-modern h2 {
@@ -613,7 +614,7 @@ p {
 
     .cta-content-modern p {
         font-size: 1rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
     }
     
     .btn-modern {
@@ -626,7 +627,7 @@ p {
     }
 
     .footer-modern {
-        padding: 3rem 0 1.25rem;
+        padding: 2.5rem 0 1rem;
     }
 
     .footer-section-modern h3 {
