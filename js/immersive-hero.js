@@ -10,108 +10,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroLabel = document.getElementById('heroLabel');
     const heroContentWrapper = document.querySelector('.hero-content-wrapper');
     const heroDescription = document.querySelector('.hero-description');
-    const portfolioSection = document.getElementById('portfolio');
     
     let ticking = false;
-    let hasAutoScrolled = false;
-    let isAutoScrolling = false;
     
     // Easing function matching Superdesign cubic-bezier(0.16, 1, 0.3, 1)
     function easeOutExpo(t) {
         return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
     }
     
-    // Custom easing for auto-scroll (superdesign-style smooth acceleration)
-    function easeInOutCubic(t) {
-        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    }
-    
-    // ===================================
-    // Superdesign-Style Auto-Scroll to Portfolio
-    // ===================================
-    
-    function autoScrollToPortfolio() {
-        if (!portfolioSection) return;
-        
-        isAutoScrolling = true;
-        hasAutoScrolled = true;
-        
-        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-        const targetPosition = portfolioSection.offsetTop; // Exact portfolio top position
-        const startPosition = scrollY;
-        const distance = targetPosition - startPosition;
-        const duration = 900; // 0.9 seconds - swift and decisive
-        
-        let startTime = null;
-        
-        function animateScroll(currentTime) {
-            if (startTime === null) startTime = currentTime;
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            
-            // Apply smooth easing
-            const easedProgress = easeInOutCubic(progress);
-            const currentPosition = startPosition + (distance * easedProgress);
-            
-            window.scrollTo(0, currentPosition);
-            
-            if (progress < 1) {
-                requestAnimationFrame(animateScroll);
-            } else {
-                isAutoScrolling = false;
-            }
-        }
-        
-        requestAnimationFrame(animateScroll);
-    }
-    
-    // Detect first scroll attempt and trigger auto-scroll
-    let scrollTimeout = null;
-    
-    function handleFirstScroll(e) {
-        if (hasAutoScrolled || isAutoScrolling) return;
-        
-        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-        
-        // Trigger on ANY downward scroll when at the very top
-        if (scrollY > 0 && scrollY < 100) {
-            // Cancel any existing timeout
-            if (scrollTimeout) clearTimeout(scrollTimeout);
-            
-            // Immediate trigger - no delay
-            autoScrollToPortfolio();
-            
-            // Remove listeners after first trigger
-            window.removeEventListener('wheel', handleFirstScroll);
-            window.removeEventListener('touchstart', handleFirstScroll);
-            window.removeEventListener('keydown', handleFirstScrollKey);
-            window.removeEventListener('scroll', handleFirstScroll);
-        }
-    }
-    
-    function handleFirstScrollKey(e) {
-        // Detect arrow down, page down, or space
-        if ([32, 34, 40].includes(e.keyCode)) {
-            e.preventDefault();
-            if (!hasAutoScrolled && !isAutoScrolling) {
-                autoScrollToPortfolio();
-                window.removeEventListener('wheel', handleFirstScroll);
-                window.removeEventListener('touchstart', handleFirstScroll);
-                window.removeEventListener('keydown', handleFirstScrollKey);
-                window.removeEventListener('scroll', handleFirstScroll);
-            }
-        }
-    }
-    
-    // Attach auto-scroll listeners (including scroll event itself)
-    window.addEventListener('wheel', handleFirstScroll, { passive: true });
-    window.addEventListener('touchstart', handleFirstScroll, { passive: true });
-    window.addEventListener('scroll', handleFirstScroll, { passive: true });
-    window.addEventListener('keydown', handleFirstScrollKey);
-    
     // Scroll-linked zoom - entire hero recedes, slides back, and pushes out of view
     function updateHeroOnScroll() {
-        if (!ticking && !isAutoScrolling) {
+        if (!ticking) {
             window.requestAnimationFrame(function() {
                 const scrollY = window.pageYOffset || document.documentElement.scrollTop;
                 const viewportHeight = window.innerHeight;
