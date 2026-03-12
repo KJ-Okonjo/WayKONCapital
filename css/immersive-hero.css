@@ -146,8 +146,8 @@
 .immersive-hero {
     position: relative;
     width: 100%;
-    height: 55vh;
-    min-height: 500px;
+    height: 75vh;
+    min-height: 650px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -261,7 +261,7 @@
 .portfolio-stacking {
     position: relative;
     background: #faf9f7;
-    padding-top: 2rem;
+    padding-top: 0;
     margin-top: 0;
     z-index: 2;
 }
@@ -560,7 +560,7 @@
     }
 
     .hero-description {
-        margin-top: 2rem;
+        margin-top: 3rem;
     }
 
     .hero-description p {
@@ -568,7 +568,7 @@
     }
 
     .portfolio-stacking {
-        padding-top: 2rem;
+        padding-top: 0;
     }
 
     .portfolio-header {
@@ -657,8 +657,8 @@
     }
 
     .immersive-hero {
-        min-height: 450px;
-        height: 55vh;
+        min-height: 550px;
+        height: 70vh;
     }
 
     .hero-content-wrapper {
@@ -685,7 +685,7 @@
     }
 
     .portfolio-stacking {
-        padding-top: 1.5rem;
+        padding-top: 0;
     }
 
     .portfolio-header {
@@ -767,8 +767,8 @@
     }
 
     .immersive-hero {
-        min-height: 420px;
-        height: 50vh;
+        min-height: 500px;
+        height: 65vh;
     }
 
     .hero-content-wrapper {
@@ -792,7 +792,7 @@
     }
 
     .portfolio-stacking {
-        padding-top: 1rem;
+        padding-top: 0;
     }
 
     .portfolio-header {
