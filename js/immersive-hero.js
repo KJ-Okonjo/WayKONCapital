@@ -10,17 +10,101 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroLabel = document.getElementById('heroLabel');
     const heroContentWrapper = document.querySelector('.hero-content-wrapper');
     const heroDescription = document.querySelector('.hero-description');
+    const portfolioSection = document.getElementById('portfolio');
     
     let ticking = false;
+    let hasAutoScrolled = false;
+    let isAutoScrolling = false;
     
     // Easing function matching Superdesign cubic-bezier(0.16, 1, 0.3, 1)
     function easeOutExpo(t) {
         return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
     }
     
+    // Custom easing for auto-scroll (superdesign-style smooth acceleration)
+    function easeInOutCubic(t) {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+    
+    // ===================================
+    // Superdesign-Style Auto-Scroll to Portfolio
+    // ===================================
+    
+    function autoScrollToPortfolio() {
+        if (hasAutoScrolled || isAutoScrolling || !portfolioSection) return;
+        
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        const heroHeight = heroSection?.offsetHeight || 0;
+        
+        // Only trigger if user is still in hero section (hasn't scrolled past it yet)
+        if (scrollY > heroHeight * 0.15) return;
+        
+        isAutoScrolling = true;
+        hasAutoScrolled = true;
+        
+        const targetPosition = portfolioSection.offsetTop - 20; // Slight offset for breathing room
+        const startPosition = scrollY;
+        const distance = targetPosition - startPosition;
+        const duration = 1200; // 1.2 seconds - swift but smooth
+        
+        let startTime = null;
+        
+        function animateScroll(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Apply smooth easing
+            const easedProgress = easeInOutCubic(progress);
+            const currentPosition = startPosition + (distance * easedProgress);
+            
+            window.scrollTo(0, currentPosition);
+            
+            if (progress < 1) {
+                requestAnimationFrame(animateScroll);
+            } else {
+                isAutoScrolling = false;
+            }
+        }
+        
+        requestAnimationFrame(animateScroll);
+    }
+    
+    // Detect first scroll attempt and trigger auto-scroll
+    function handleFirstScroll(e) {
+        if (hasAutoScrolled || isAutoScrolling) return;
+        
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Only auto-scroll if user is at or near the top
+        if (scrollY < 50) {
+            // Small delay to feel natural
+            setTimeout(() => {
+                autoScrollToPortfolio();
+            }, 150);
+            
+            // Remove listeners after first trigger
+            window.removeEventListener('wheel', handleFirstScroll);
+            window.removeEventListener('touchstart', handleFirstScroll);
+            window.removeEventListener('keydown', handleFirstScrollKey);
+        }
+    }
+    
+    function handleFirstScrollKey(e) {
+        // Detect arrow down, page down, or space
+        if ([32, 34, 40].includes(e.keyCode)) {
+            handleFirstScroll(e);
+        }
+    }
+    
+    // Attach auto-scroll listeners
+    window.addEventListener('wheel', handleFirstScroll, { passive: true });
+    window.addEventListener('touchstart', handleFirstScroll, { passive: true });
+    window.addEventListener('keydown', handleFirstScrollKey);
+    
     // Scroll-linked zoom - entire hero recedes, slides back, and pushes out of view
     function updateHeroOnScroll() {
-        if (!ticking) {
+        if (!ticking && !isAutoScrolling) {
             window.requestAnimationFrame(function() {
                 const scrollY = window.pageYOffset || document.documentElement.scrollTop;
                 const viewportHeight = window.innerHeight;
