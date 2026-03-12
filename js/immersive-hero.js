@@ -31,21 +31,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===================================
     
     function autoScrollToPortfolio() {
-        if (hasAutoScrolled || isAutoScrolling || !portfolioSection) return;
-        
-        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-        const heroHeight = heroSection?.offsetHeight || 0;
-        
-        // Only trigger if user is still in hero section (hasn't scrolled past it yet)
-        if (scrollY > heroHeight * 0.15) return;
+        if (!portfolioSection) return;
         
         isAutoScrolling = true;
         hasAutoScrolled = true;
         
-        const targetPosition = portfolioSection.offsetTop - 20; // Slight offset for breathing room
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        const targetPosition = portfolioSection.offsetTop; // Exact portfolio top position
         const startPosition = scrollY;
         const distance = targetPosition - startPosition;
-        const duration = 1200; // 1.2 seconds - swift but smooth
+        const duration = 900; // 0.9 seconds - swift and decisive
         
         let startTime = null;
         
@@ -71,35 +66,47 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Detect first scroll attempt and trigger auto-scroll
+    let scrollTimeout = null;
+    
     function handleFirstScroll(e) {
         if (hasAutoScrolled || isAutoScrolling) return;
         
         const scrollY = window.pageYOffset || document.documentElement.scrollTop;
         
-        // Only auto-scroll if user is at or near the top
-        if (scrollY < 50) {
-            // Small delay to feel natural
-            setTimeout(() => {
-                autoScrollToPortfolio();
-            }, 150);
+        // Trigger on ANY downward scroll when at the very top
+        if (scrollY > 0 && scrollY < 100) {
+            // Cancel any existing timeout
+            if (scrollTimeout) clearTimeout(scrollTimeout);
+            
+            // Immediate trigger - no delay
+            autoScrollToPortfolio();
             
             // Remove listeners after first trigger
             window.removeEventListener('wheel', handleFirstScroll);
             window.removeEventListener('touchstart', handleFirstScroll);
             window.removeEventListener('keydown', handleFirstScrollKey);
+            window.removeEventListener('scroll', handleFirstScroll);
         }
     }
     
     function handleFirstScrollKey(e) {
         // Detect arrow down, page down, or space
         if ([32, 34, 40].includes(e.keyCode)) {
-            handleFirstScroll(e);
+            e.preventDefault();
+            if (!hasAutoScrolled && !isAutoScrolling) {
+                autoScrollToPortfolio();
+                window.removeEventListener('wheel', handleFirstScroll);
+                window.removeEventListener('touchstart', handleFirstScroll);
+                window.removeEventListener('keydown', handleFirstScrollKey);
+                window.removeEventListener('scroll', handleFirstScroll);
+            }
         }
     }
     
-    // Attach auto-scroll listeners
+    // Attach auto-scroll listeners (including scroll event itself)
     window.addEventListener('wheel', handleFirstScroll, { passive: true });
     window.addEventListener('touchstart', handleFirstScroll, { passive: true });
+    window.addEventListener('scroll', handleFirstScroll, { passive: true });
     window.addEventListener('keydown', handleFirstScrollKey);
     
     // Scroll-linked zoom - entire hero recedes, slides back, and pushes out of view
