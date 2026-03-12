@@ -57,12 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     heroDescription.style.opacity = Math.max(0, descOpacity);
                 }
                 
-                // Layer 5: Push entire hero section up and out of view
-                if (heroSection) {
-                    const pushUp = scrollProgress * 200; // Push hero up by 200px
-                    heroSection.style.transform = `translateY(-${pushUp}px)`;
-                }
-                
                 ticking = false;
             });
             
